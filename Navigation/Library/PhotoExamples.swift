@@ -8,7 +8,6 @@ import UIKit
 final class Photos {
     
     static let shared = Photos()
-     
     let examples: [UIImage]
     
     private init() {

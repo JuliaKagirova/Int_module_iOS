@@ -10,6 +10,7 @@ final class ProfileViewController: UIViewController {
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
+    
     static var postTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped).mask()
         table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: headerIdent)
@@ -17,18 +18,20 @@ final class ProfileViewController: UIViewController {
         table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
         return table
     }()
-    
+     
     // MARK: - Setup section
     
     override func viewDidLoad() {
             super.viewDidLoad()
 
     #if DEBUG
+        CurrentUserService.identification(login: "testDebug")
             view.backgroundColor = .systemPink
     #else
+        TestUserService.identification(login: "testRelease")
             view.backgroundColor = .systemGreen
     #endif
-            
+    
             view.addSubview(Self.postTableView)
             setupConstraints()
             Self.postTableView.dataSource = self
@@ -36,7 +39,6 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.refreshControl = UIRefreshControl()
             Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
         }
-    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             Self.postTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

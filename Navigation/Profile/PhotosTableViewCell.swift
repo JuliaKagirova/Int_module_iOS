@@ -20,7 +20,7 @@ class PhotosTableViewCell: UITableViewCell {
         let arrow = UIImageView().mask()
         arrow.image = UIImage(systemName: "arrow.right")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         return arrow
-    }()
+    }() 
     var stackViewImage: UIStackView = {
         let stack = UIStackView().mask()
         stack.axis = .horizontal

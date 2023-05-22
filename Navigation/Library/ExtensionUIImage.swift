@@ -14,5 +14,5 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
-    
+
 }

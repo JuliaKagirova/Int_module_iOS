@@ -61,7 +61,7 @@ import StorageService
     required init?(coder: NSCoder) {
         fatalError("Error")
     }
-    
+     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             postAuthor.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.indent),
@@ -69,7 +69,7 @@ import StorageService
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
 
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.56),
+            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.8 ),
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
 
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),
