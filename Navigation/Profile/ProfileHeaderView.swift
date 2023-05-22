@@ -19,7 +19,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am release", avatar: UIImage(named: "9")!)
     private var statusText = "Ready to help"
     private var avatarOriginPoint = CGPoint()
-    
+     
     // MARK: - Setup section
     
     override init(reuseIdentifier: String?) {

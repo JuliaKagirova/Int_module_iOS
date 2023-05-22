@@ -61,7 +61,7 @@ import StorageService
     required init?(coder: NSCoder) {
         fatalError("Error")
     }
-    
+     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             postAuthor.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.indent),

@@ -12,7 +12,7 @@ final class FeedViewController: UIViewController {
         view.backgroundColor = .systemTeal
         createSubView()
     }
-    
+     
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+ 
 public class User {
      var login = String()
      var fullName = String()

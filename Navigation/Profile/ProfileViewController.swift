@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
         table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
         return table
     }()
-    
+     
     // MARK: - Setup section
     
     override func viewDidLoad() {
