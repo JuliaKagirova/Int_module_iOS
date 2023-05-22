@@ -30,7 +30,7 @@ final class InfoViewController: UIViewController {
             button.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
-    
+
     @objc func tapAlertButton() {
         let alert = UIAlertController(title: "Attention",
                                       message: "How are you feeling?",
