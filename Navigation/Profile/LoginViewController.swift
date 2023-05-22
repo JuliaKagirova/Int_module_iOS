@@ -8,14 +8,15 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: Visual content
-    
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
+    
     var vkLogo: UIImageView = {
         let imageView = UIImageView().mask()
         imageView.image = UIImage(named: "vkLogo")
         return imageView
     }()
+    
     var loginStackView: UIStackView = {
         let stack = UIStackView().mask()
         stack.axis = .vertical
@@ -27,6 +28,7 @@ final class LoginViewController: UIViewController {
         stack.clipsToBounds = true
         return stack
     }()
+    
     var loginButton: UIButton = {
         let button = UIButton().mask()
         if let pixel = UIImage(named: "blue_pixel") {
@@ -42,8 +44,9 @@ final class LoginViewController: UIViewController {
         button.clipsToBounds = true
         return button
     }()
+    
     var loginField: UITextField = {
-        let login = UITextField().mask()
+        var login = UITextField().mask()
         login.placeholder = "Log In"
         login.layer.borderColor = UIColor.lightGray.cgColor
         login.layer.borderWidth = 0.25
@@ -56,6 +59,7 @@ final class LoginViewController: UIViewController {
         login.returnKeyType = .done
         return login
     }()
+    
     var passwordField: UITextField = {
         let password = UITextField().mask()
         password.leftViewMode = .always
@@ -80,6 +84,12 @@ final class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         setupViews()
+        
+#if DEBUG
+    CurrentUserService.identification(login: "testDebug")
+#else
+    TestUserService.identification(login: "testRelease")
+#endif
     }
     
     private func setupViews() {
@@ -99,7 +109,6 @@ final class LoginViewController: UIViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-
             loginScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             loginScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             loginScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -148,8 +157,17 @@ final class LoginViewController: UIViewController {
     // MARK: - Event handlers
 
     @objc private func touchLoginButton() {
-        let profileVC = ProfileViewController()
-        navigationController?.setViewControllers([profileVC], animated: true)
+        func identification(login: String) {
+            if login == loginField.text {
+                let profileVC = ProfileViewController()
+                navigationController?.setViewControllers([profileVC], animated: true)
+            } else {
+                print("Access is denied")
+            }
+        }
+//        identification(login: "testDebug")
+                identification(login: "testRelease")
+        
     }
 
     @objc private func keyboardShow(notification: NSNotification) {
