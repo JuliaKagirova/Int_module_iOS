@@ -72,7 +72,7 @@ final class LoginViewController: UIViewController {
     }()
     
     // MARK: - Setup section
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

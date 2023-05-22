@@ -18,7 +18,7 @@ class PhotosViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         return layout
-    }()
+    }() 
     lazy var photosCollectionView: UICollectionView = {
         let photos = UICollectionView(frame: .zero, collectionViewLayout: layout).mask()
         photos.backgroundColor = .white

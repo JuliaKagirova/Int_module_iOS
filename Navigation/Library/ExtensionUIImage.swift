@@ -11,7 +11,7 @@ public extension UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(at: .zero, blendMode: .normal, alpha: alpha)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        UIGraphicsEndImageContext() 
         return newImage
     }
     
