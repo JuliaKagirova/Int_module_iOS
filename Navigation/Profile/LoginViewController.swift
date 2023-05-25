@@ -84,12 +84,6 @@ final class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         setupViews()
-        
-#if DEBUG
-    CurrentUserService.identification(login: "testDebug")
-#else
-    TestUserService.identification(login: "testRelease")
-#endif
     }
     
     private func setupViews() {
@@ -137,6 +131,23 @@ final class LoginViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
+    private func checkID() {
+         func identification(login: String) {
+             if login == loginField.text {
+                 let profileVC = ProfileViewController()
+                 navigationController?.setViewControllers([profileVC], animated: true)
+             } else {
+                 print("Access is denied")
+             }
+         }
+        
+#if DEBUG
+        identification(login: "testDebug")
+#else
+        identification(login: "testRelease")
+#endif
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -156,19 +167,9 @@ final class LoginViewController: UIViewController {
     // MARK: - Event handlers
 
     @objc private func touchLoginButton() {
-        func identification(login: String) {
-            if login == loginField.text {
-                let profileVC = ProfileViewController()
-                navigationController?.setViewControllers([profileVC], animated: true)
-            } else {
-                print("Access is denied")
-            }
-        }
-//        identification(login: "testDebug")
-                identification(login: "testRelease")
-        
+        checkID()
     }
-
+    
     @objc private func keyboardShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             loginScrollView.contentOffset.y = keyboardSize.height - (loginScrollView.frame.height - loginButton.frame.minY)

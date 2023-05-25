@@ -25,10 +25,8 @@ final class ProfileViewController: UIViewController {
             super.viewDidLoad()
 
     #if DEBUG
-        CurrentUserService.identification(login: "testDebug")
             view.backgroundColor = .systemPink
     #else
-        TestUserService.identification(login: "testRelease")
             view.backgroundColor = .systemGreen
     #endif
     

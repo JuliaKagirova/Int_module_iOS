@@ -15,8 +15,8 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var setStatusButton = UIButton().mask()
     var returnAvatarButton = UIButton().mask()
     var avatarBackground = UIView()
-    var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am debug", avatar: UIImage(named: "7")!)
-    var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am release", avatar: UIImage(named: "9")!)
+    var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
+    var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
     private var statusText = "Ready to help"
     private var avatarOriginPoint = CGPoint()
      
