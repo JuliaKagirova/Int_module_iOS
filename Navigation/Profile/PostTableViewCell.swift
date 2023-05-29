@@ -98,7 +98,7 @@ import iOSIntPackage
         postViews.text = "Views: \(viewCounter)"
     }
      func imageFilter(image: UIImage) {
-         ImageProcessor().processImage(sourceImage: UIImage(named: "3")!, filter: ColorFilter.chrome) { image in
+         ImageProcessor().processImage(sourceImage: UIImage(named: "Photos")!, filter: ColorFilter.colorInvert) { image in
              postImage.image = image
          }
      }
