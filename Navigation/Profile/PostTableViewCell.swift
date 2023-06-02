@@ -5,6 +5,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
  class PostTableViewCell: UITableViewCell {
     
@@ -20,7 +21,7 @@ import StorageService
     }()
     var postImage: UIImageView = {
         let image = UIImageView().mask()
-        image.backgroundColor = .black
+        image.backgroundColor =  .white
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -64,7 +65,7 @@ import StorageService
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
 
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.56),
+            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.7),
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
 
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),
@@ -86,15 +87,21 @@ import StorageService
     func configPostArray(post: Post) {
         postAuthor.text = post.author
         postDescription.text = post.description
-        postImage.image = UIImage(named: post.image)
         postLikes.text = "Likes: \(post.likes)"
         viewCounter = post.views
         postViews.text = "Views: \(viewCounter)"
+        imageFilter(image: UIImage(imageLiteralResourceName: post.image))
     }
     
     func incrementPostViewsCounter() {
         viewCounter += 1
         postViews.text = "Views: \(viewCounter)"
     }
+     func imageFilter(image: UIImage) {
+         ImageProcessor().processImage(sourceImage: image, filter: ColorFilter.noir) { image in
+             postImage.image = image
+         }
+     }
 }
+
 
