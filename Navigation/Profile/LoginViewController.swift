@@ -142,9 +142,20 @@ final class LoginViewController: UIViewController {
          }
         
 #if DEBUG
-        identification(login: "testDebug")
+//        identification(login: "testDebug")
+        
+        
+//        let savedUser = User(login: "debug", fullName: "test debug", status: "ok", avatar: UIImage(named: "1")!)
+//        let service: UserService = TestUserService.identification(user: savedUser)! as! UserService
+        
+        
+        let _: UserService = TestUserService.identification(login: "testDebug")! as! UserService
+    
 #else
         identification(login: "testRelease")
+//        let savedUser = User(login: "release", fullName: "test release", status: "fine", avatar: UIImage(named: "2")!)
+//        let service: UserService = CurrentUserService.identification(user: savedUser)! as! UserService
+//      
 #endif
         
     }
