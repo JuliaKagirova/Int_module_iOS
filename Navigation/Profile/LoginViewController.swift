@@ -132,32 +132,27 @@ final class LoginViewController: UIViewController {
         ])
     }
     private func checkID() {
-         func identification(login: String) {
-             if login == loginField.text {
-                 let profileVC = ProfileViewController()
-                 navigationController?.setViewControllers([profileVC], animated: true)
-             } else {
-                 print("Access is denied")
-             }
-         }
-        
-#if DEBUG
-//        identification(login: "testDebug")
-        
-        
-//        let savedUser = User(login: "debug", fullName: "test debug", status: "ok", avatar: UIImage(named: "1")!)
-//        let service: UserService = TestUserService.identification(user: savedUser)! as! UserService
-        
-        
-        let _: UserService = TestUserService.identification(login: "testDebug")! as! UserService
-    
-#else
-        identification(login: "testRelease")
-//        let savedUser = User(login: "release", fullName: "test release", status: "fine", avatar: UIImage(named: "2")!)
-//        let service: UserService = CurrentUserService.identification(user: savedUser)! as! UserService
-//      
-#endif
-        
+        #if DEBUG
+        guard let user = TestUserService.shared.identification(login: "testDebug") else {
+            return
+        }
+        if user.login == loginField.text {
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: true)
+        } else {
+            print("Access is denied")
+        }
+        #else
+        guard let user = CurrentUserService.shared.identification(login: "testRelease") else {
+            return
+        }
+        if user.login == loginField.text {
+            let profileVC = ProfileViewController()
+            navigationController?.setViewControllers([profileVC], animated: true)
+        } else {
+            print("Access is denied")
+        }
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -203,3 +198,4 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+
