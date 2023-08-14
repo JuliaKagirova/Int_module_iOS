@@ -19,7 +19,7 @@ final class FeedViewController: UIViewController {
         stackView.spacing = 10
         stackView.distribution = .fillEqually
         view.addSubview(stackView) 
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([ 
             stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 200),

@@ -139,7 +139,7 @@ final class LoginViewController: UIViewController {
             // Сообщение о том что логин или пароль пустые
             return }
         guard let checkResult = self.loginDelegate?.check(login: login, password: password), checkResult  else {
-            tapAlertButton()
+            tapAlertButton() 
             // UIAlertController с ошибкой, что лог и пасс неверные
             return }
         

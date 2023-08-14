@@ -18,7 +18,7 @@ public struct Post {
         self.description = description
         self.image = image
         self.likes = likes
-        self.views = views 
+        self.views = views  
     }
     
 }

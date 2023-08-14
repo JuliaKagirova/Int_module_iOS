@@ -20,7 +20,7 @@ import StorageService
          description: "What Future Iterations of the Master Cycle Zero Do You Want to See?",
          image: "post3",
          likes: 3,
-         views: 34),
+         views: 34), 
     Post(author: "Mike Midwood",
          description: "New Lo-Fi Fan Album Ocarina of Vibes Releases Today",
          image: "post4",

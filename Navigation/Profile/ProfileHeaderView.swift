@@ -29,7 +29,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setupStatusLabel()
         setupStatusTextField()
         setupStatusButton()
-        setupAvatarImage()
+        setupAvatarImage() 
         
         statusTextField.delegate = self
     }

@@ -90,7 +90,7 @@ import StorageService
     
     func configPostArray(post: Post) {
         postAuthor.text = post.author
-        postDescription.text = post.description
+        postDescription.text = post.description 
         postImage.image = UIImage(named: post.image)
         postLikes.text = "Likes: \(post.likes)"
         viewCounter = post.views

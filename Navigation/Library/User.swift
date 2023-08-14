@@ -18,7 +18,7 @@ public class User {
         self.fullName = fullName
         self.status = status
         self.avatar = avatar
-    }
+    } 
 }
 protocol UserService {
   func identification(login: String) -> User?

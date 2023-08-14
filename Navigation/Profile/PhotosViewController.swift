@@ -70,7 +70,7 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PhotosViewController: UICollectionViewDataSource {
+extension PhotosViewController: UICollectionViewDataSource { 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Photos.shared.examples.count

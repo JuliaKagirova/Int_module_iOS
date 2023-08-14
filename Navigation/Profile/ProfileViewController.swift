@@ -22,7 +22,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Setup section
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+            super.viewDidLoad() 
 
     #if DEBUG
             view.backgroundColor = .systemPink
