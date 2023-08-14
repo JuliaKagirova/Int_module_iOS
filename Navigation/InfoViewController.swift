@@ -20,7 +20,6 @@ final class InfoViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = LayoutConstants.cornerRadius
         button.addTarget(self, action: #selector(tapAlertButton), for: .touchUpInside)
-                
         view.addSubview(button)
         
         NSLayoutConstraint.activate([

@@ -12,7 +12,7 @@ final class Photos {
     
     private init() {
         var photos = [UIImage]()
-        for i in 1...20 { photos.append((UIImage(named: "\(i)") ?? UIImage())) }
+        for i in 1...20 { photos.append((UIImage(named: "\(i)") ?? UIImage() )) }
         examples = photos.shuffled()
     } 
 }

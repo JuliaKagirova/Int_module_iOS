@@ -23,6 +23,7 @@ public class User {
 protocol UserService {
   func identification(login: String) -> User?
 }
+
 class CurrentUserService: UserService {
     
     private init() {}

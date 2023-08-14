@@ -15,5 +15,5 @@ public extension UIView {
     func mask() -> Self {
         translatesAutoresizingMaskIntoConstraints = false
         return self
-    }
+    } 
 }

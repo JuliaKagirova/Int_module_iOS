@@ -16,7 +16,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
 
-    required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) { 
         fatalError("Error")
     }
      

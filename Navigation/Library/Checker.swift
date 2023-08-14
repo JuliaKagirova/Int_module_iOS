@@ -9,8 +9,8 @@ import UIKit
 
 class Checker {
     static let shared = Checker(login: "testDebug", password: "debug")
-    var login = String()
-    var password = String()
+    let login: String
+    let password: String
     
     private init (login: String, password: String) {
         self.login = login
@@ -18,9 +18,17 @@ class Checker {
     }
     
     func check(login: String, password: String) -> Bool {
-        if login == "testDebug" {
-        } else if  password == "debug" {
+        if login == self.login && password == self.password {
+            return true
+        } else {
+            return false
         }
-        return true
     }
 }
+
+protocol LoginViewControllerDelegate {
+    func check(login: String, password: String) -> Bool
+}
+
+
+

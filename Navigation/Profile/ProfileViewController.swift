@@ -9,7 +9,7 @@ final class ProfileViewController: UIViewController {
     
     static let headerIdent = "header"
     static let photoIdent = "photo"
-    static let postIdent = "post"
+    static let postIdent = "post" 
     
     static var postTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped).mask()

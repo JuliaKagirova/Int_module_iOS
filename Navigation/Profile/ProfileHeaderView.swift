@@ -18,7 +18,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
     var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
     private var statusText = "Ready to help"
-    private var avatarOriginPoint = CGPoint()
+    private var avatarOriginPoint = CGPoint() 
      
     // MARK: - Setup section
     

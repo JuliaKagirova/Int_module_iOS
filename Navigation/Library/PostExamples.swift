@@ -26,5 +26,5 @@ import StorageService
          image: "post4",
          likes: 14,
          views: 136
-        )]
+        )] 
 

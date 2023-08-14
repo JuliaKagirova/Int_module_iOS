@@ -11,7 +11,7 @@ import StorageService
     private var viewCounter = 0
 
     // MARK: Visual objects
-    var postAuthor: UILabel = {
+    var postAuthor: UILabel = { 
         let label = UILabel().mask()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
