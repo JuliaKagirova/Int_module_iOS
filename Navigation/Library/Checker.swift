@@ -18,17 +18,11 @@ class Checker {
     }
     
     func check(login: String, password: String) -> Bool {
-        if login == self.login && password == self.password {
-            return true
-        } else {
-            return false
+            login == self.login && password == self.password
         }
-    }
 }
 
 protocol LoginViewControllerDelegate {
     func check(login: String, password: String) -> Bool
 } 
-
-
 
