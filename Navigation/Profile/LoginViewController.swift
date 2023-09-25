@@ -47,7 +47,7 @@ final class LoginViewController: UIViewController {
     
     var loginField: UITextField = {
         var login = UITextField().mask()
-        login.placeholder = "Log In"
+        login.placeholder = "Log In: testDebug"
         login.layer.borderColor = UIColor.lightGray.cgColor
         login.layer.borderWidth = 0.25
         login.leftViewMode = .always
@@ -64,7 +64,7 @@ final class LoginViewController: UIViewController {
     var passwordField: UITextField = {
         let password = UITextField().mask()
         password.leftViewMode = .always
-        password.placeholder = "Password"
+        password.placeholder = "Password: debug"
         password.layer.borderColor = UIColor.lightGray.cgColor
         password.layer.borderWidth = 0.25
         password.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: password.frame.height))
