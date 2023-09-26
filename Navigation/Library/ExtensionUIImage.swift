@@ -5,7 +5,7 @@
 
 import UIKit
 
-public extension UIImage {
+public extension UIImage { 
     
     func image(alpha: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -14,5 +14,4 @@ public extension UIImage {
         UIGraphicsEndImageContext() 
         return newImage
     }
-    
 }

@@ -8,6 +8,7 @@ import SnapKit
 
 final class ProfileHeaderView: UITableViewHeaderFooterView {
     
+    // MARK: Visual objects
     var fullNameLabel = UILabel().mask()
     var avatarImageView = UIImageView().mask()
     var statusLabel = UILabel().mask()
@@ -15,9 +16,11 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var setStatusButton = UIButton().mask()
     var returnAvatarButton = UIButton().mask()
     var avatarBackground = UIView()
+    var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
+    var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
     private var statusText = "Ready to help"
-    private var avatarOriginPoint = CGPoint()
-    
+    private var avatarOriginPoint = CGPoint() 
+     
     // MARK: - Setup section
     
     override init(reuseIdentifier: String?) {
@@ -27,27 +30,61 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setupStatusLabel()
         setupStatusTextField()
         setupStatusButton()
+<<<<<<< HEAD
         setupAvatarImage()
         setupAddSubs()
         setupContstraints()
+=======
+        setupAvatarImage() 
+>>>>>>> feature/task
         
         statusTextField.delegate = self
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Error")
+        fatalError("error")
     }
     
     private func setupNameLabel() {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
         fullNameLabel.textColor = .black
+<<<<<<< HEAD
+=======
+        addSubview(fullNameLabel)
+        NSLayoutConstraint.activate([
+            fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            fullNameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 156),
+            fullNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            fullNameLabel.heightAnchor.constraint(equalToConstant: 28),
+        ])
+#if DEBUG
+        fullNameLabel.text = "\(userDebug.fullName)"
+#else
+        fullNameLabel.text = "\(userRelease.fullName)"
+#endif
+>>>>>>> feature/task
     }
     
     private func setupStatusLabel() {
         statusLabel.text = statusText
         statusLabel.font = .systemFont(ofSize: 17)
         statusLabel.textColor = .black
+<<<<<<< HEAD
+=======
+        addSubview(statusLabel)
+        NSLayoutConstraint.activate([
+            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
+            statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+            statusLabel.trailingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor),
+            statusLabel.heightAnchor.constraint(equalTo: fullNameLabel.heightAnchor),
+        ])
+#if DEBUG
+        statusLabel.text = "\(userDebug.status)"
+#else
+        statusLabel.text = "\(userRelease.status)"
+#endif
+>>>>>>> feature/task
     }
     
     private func setupStatusTextField() {
@@ -144,6 +181,25 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
             make.right.equalTo(safeAreaInsets).inset(16)
         }
         
+<<<<<<< HEAD
+=======
+        addSubviews(avatarBackground, avatarImageView, returnAvatarButton)
+        
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 128),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
+            
+            returnAvatarButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            returnAvatarButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+        ])
+#if DEBUG
+        avatarImageView.image = userDebug.avatar
+#else
+        avatarImageView.image = userRelease.avatar
+#endif
+>>>>>>> feature/task
     }
     
     // MARK: - Event handlers
