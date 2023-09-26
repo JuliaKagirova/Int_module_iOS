@@ -11,8 +11,9 @@ public extension UIView {
             self.addSubview(i) 
         }
     }
+    
     func mask() -> Self {
         translatesAutoresizingMaskIntoConstraints = false
         return self
-    }
+    } 
 }

@@ -11,7 +11,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     var labelPhotos: UILabel = {
         let label = UILabel().mask()
-        label.text = "Photos"
+        label.text = "Photos" 
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = .black
         return label
@@ -22,7 +22,7 @@ class PhotosTableViewCell: UITableViewCell {
         return arrow
     }() 
     var stackViewImage: UIStackView = {
-        let stack = UIStackView().mask()
+        let stack = UIStackView().mask() 
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillEqually

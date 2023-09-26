@@ -63,14 +63,14 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let countItem: CGFloat = 2
+        let countItem: CGFloat = 2 
         let accessibleWidth = collectionView.frame.width - 32
         let widthItem = (accessibleWidth / countItem)
-        return CGSize(width: widthItem, height: widthItem * 0.56)
+        return CGSize(width: widthItem, height: widthItem * 0.7) //0.56
     }
 }
 
-extension PhotosViewController: UICollectionViewDataSource {
+extension PhotosViewController: UICollectionViewDataSource { 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Photos.shared.examples.count

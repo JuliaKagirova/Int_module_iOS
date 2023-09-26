@@ -12,14 +12,18 @@ final class FeedViewController: UIViewController {
         view.backgroundColor = .systemTeal
         createSubView()
     }
+<<<<<<< HEAD
 
+=======
+     
+>>>>>>> feature/task
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fillEqually
-        view.addSubview(stackView)
-        NSLayoutConstraint.activate([
+        view.addSubview(stackView) 
+        NSLayoutConstraint.activate([ 
             stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 200),
