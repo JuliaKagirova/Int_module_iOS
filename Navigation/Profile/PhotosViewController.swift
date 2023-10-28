@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
@@ -50,11 +51,22 @@ class PhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+    //NotificationCenter
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let name: String = "Julia"
+            NotificationCenter.default.post(name: .reloadPhoto, object: name)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc private func notificationAction(_ notification: NSNotification) {
+        guard let object = notification.object as? String else { return }
+        print("NotificationCenter in first VC ")
+        print("object = \(object)")
     }
 }
 
@@ -83,3 +95,14 @@ extension PhotosViewController: UICollectionViewDataSource {
     }
 }
 
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        ImagePublisherFacade().removeSubscription(for: ImageLibrarySubscriber.self as! ImageLibrarySubscriber)
+        _ = ImagePublisherFacade()
+        ImagePublisherFacade().addImagesWithTimer(time: 3, repeat: 25, userImages: [UIImage].init())
+    }
+}
+    // NotificationCenter
+    extension NSNotification.Name {
+        static let reloadPhoto = NSNotification.Name("reloadPhoto")
+    }

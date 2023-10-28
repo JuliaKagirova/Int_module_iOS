@@ -1,9 +1,7 @@
-//
 //  User.swift
 //  Navigation
 //
 //  Created by Юлия Кагирова on 07.05.2023.
-//
 
 import UIKit
  

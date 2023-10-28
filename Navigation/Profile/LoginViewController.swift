@@ -144,7 +144,6 @@ final class LoginViewController: UIViewController {
             return }
         
         
-        
 #if DEBUG
         guard let user = TestUserService.shared.identification(login: "testDebug") else {
             return

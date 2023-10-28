@@ -1,14 +1,12 @@
-//
 //  Checker.swift
 //  Navigation
 //
 //  Created by Юлия Кагирова on 11.08.2023.
-//
 
 import UIKit
 
 class Checker {
-    static let shared = Checker(login: "testDebug", password: "debug")
+    static let shared = Checker(login:"testDebug", password:"debug")
     let login: String
     let password: String
     
