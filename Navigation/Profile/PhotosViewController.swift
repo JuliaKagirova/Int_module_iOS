@@ -9,7 +9,6 @@ import iOSIntPackage
 class PhotosViewController: UIViewController {
     
     let photoIdent = "photoCell"
-    private var imagePublisherFacade = ImagePublisherFacade()
     private var collectionImages : [UIImage] = Photos.shared.examples
     let facade = ImagePublisherFacade()
     
