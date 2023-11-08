@@ -11,7 +11,6 @@ import StorageService
       var post: Post?
       override func viewDidLoad() {
         super.viewDidLoad() 
-        
         title = post?.author ?? "-"
         view.backgroundColor = .systemYellow
         

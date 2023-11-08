@@ -53,7 +53,7 @@ class PhotosViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = true
-        facade.addImagesWithTimer(time: 2, repeat: 40, userImages: collectionImages)
+        facade.addImagesWithTimer(time: 1, repeat: 40, userImages: collectionImages)
         self.receive(images: collectionImages)
     }
     override func viewWillDisappear(_ animated: Bool) {
