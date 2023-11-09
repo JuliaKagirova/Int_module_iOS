@@ -7,7 +7,8 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    // MARK: Visual content
+    // MARK: UI
+    
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
     
@@ -78,29 +79,35 @@ final class LoginViewController: UIViewController {
     }()
     var loginDelegate: LoginViewControllerDelegate?
     
-    // MARK: - Setup section
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.isHidden = true
-        
         setupViews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupKeyboardObservers()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeKeyboardObservers()
+    }
+    
+    //Mark: - Private Methods
     
     private func setupViews() {
         view.addSubview(loginScrollView)
         loginScrollView.addSubview(contentView)
-        
         contentView.addSubviews(vkLogo, loginStackView, loginButton)
-        
         loginStackView.addArrangedSubview(loginField)
         loginStackView.addArrangedSubview(passwordField)
-        
         loginField.delegate = self
         passwordField.delegate = self
-        
         setupConstraints()
     }
 
@@ -135,14 +142,12 @@ final class LoginViewController: UIViewController {
         ])
     }
     private func checkID() {
-        guard let login = self.loginField.text, let password = self.passwordField.text else {
-            // Сообщение о том что логин или пароль пустые
-            return }
+        // Сообщение о том что логин или пароль пустые
+        guard let login = self.loginField.text, let password = self.passwordField.text else { return }
+        // UIAlertController с ошибкой, что лог и пасс неверные
         guard let checkResult = self.loginDelegate?.check(login: login, password: password), checkResult  else {
-            tapAlertButton() 
-            // UIAlertController с ошибкой, что лог и пасс неверные
+            tapAlertButton()
             return }
-        
         
 #if DEBUG
         guard let user = TestUserService.shared.identification(login: "testDebug") else {
@@ -184,6 +189,27 @@ final class LoginViewController: UIViewController {
         ])
     }
     
+    private func setupKeyboardObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(self.willShowKeyboard),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(self.willHideKeyboard),
+            name: UIResponder.keyboardDidHideNotification,
+            object: nil)
+    }
+    
+    private func removeKeyboardObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    // MARK: - Event handlers
+    
     @objc func tapAlertButton() {
         
         let alert = UIAlertController(title: "You entered the wrong credentials",
@@ -205,48 +231,20 @@ final class LoginViewController: UIViewController {
 
         self.present(alert, animated: true, completion: nil)
     }
-    @objc private func didTapOnScreen() {
-        tapAlertButton()
-//        dismiss(animated: true)
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupKeyboardObservers()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        removeKeyboardObservers()
-    }
     @objc func willShowKeyboard(_notification: NSNotification) {
         let keyboardHeight = (_notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
         loginScrollView.contentInset.bottom += keyboardHeight ?? 0.0
     }
+    
     @objc func willHideKeyboard(_ notification: NSNotification) {
         loginScrollView.contentInset.bottom = 0.0
     }
     
-    private func setupKeyboardObservers() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(self.willShowKeyboard),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(self.willHideKeyboard),
-            name: UIResponder.keyboardDidHideNotification,
-            object: nil)
+    @objc private func didTapOnScreen() {
+        tapAlertButton()
+//        dismiss(animated: true)
     }
-    private func removeKeyboardObservers() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self)
-    }
-    
-    
-    // MARK: - Event handlers
 
     @objc private func touchLoginButton() {
         checkID()

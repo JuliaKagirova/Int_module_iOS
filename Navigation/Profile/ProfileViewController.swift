@@ -7,6 +7,8 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    // MARK: - Properties
+    
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post" 
@@ -19,17 +21,15 @@ final class ProfileViewController: UIViewController {
         return table
     }()
      
-    // MARK: - Setup section
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
             super.viewDidLoad() 
-
     #if DEBUG
             view.backgroundColor = .systemPink
     #else
             view.backgroundColor = .systemGreen
     #endif
-    
             view.addSubview(Self.postTableView)
             setupConstraints()
             Self.postTableView.dataSource = self
@@ -37,6 +37,9 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.refreshControl = UIRefreshControl()
             Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
         }
+    
+    // MARK: - Private Methods
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             Self.postTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -45,6 +48,8 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+
+    // MARK: - Event handlers
 
     @objc func reloadTableView() {
         Self.postTableView.reloadData()

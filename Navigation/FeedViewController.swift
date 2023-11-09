@@ -7,12 +7,16 @@ import UIKit
 
 final class FeedViewController: UIViewController {
 
+    // MARK: - Init
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
         createSubView()
     }
      
+    // MARK: - Private Methods
+
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -39,6 +43,8 @@ final class FeedViewController: UIViewController {
         view.addArrangedSubview(button)
     }
     
+    // MARK: - Event Handlers
+
     @objc func tapPostButton() {
         let post = postExamples[0]
         

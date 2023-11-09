@@ -7,12 +7,16 @@ import UIKit
 
 final class InfoViewController: UIViewController {
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         createAlertButton()
     }
     
+    // MARK: - Private Methods
+
     private func createAlertButton() {
         let button = UIButton().mask()
         button.setTitle("Alert", for: .normal)
@@ -21,7 +25,6 @@ final class InfoViewController: UIViewController {
         button.layer.cornerRadius = LayoutConstants.cornerRadius
         button.addTarget(self, action: #selector(tapAlertButton), for: .touchUpInside)
         view.addSubview(button)
-        
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
@@ -30,6 +33,8 @@ final class InfoViewController: UIViewController {
         ])
     }
     
+    // MARK: - Event Handlers
+
     @objc func tapAlertButton() {
         let alert = UIAlertController(title: "Attention",
                                       message: "How are you feeling?",

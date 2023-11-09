@@ -7,8 +7,13 @@ import UIKit
 import StorageService
  
  final class PostViewController: UIViewController {
-    
+     
+     // MARK: - Properties
+
       var post: Post?
+     
+     // MARK: - Life Cycle
+
       override func viewDidLoad() {
         super.viewDidLoad() 
         title = post?.author ?? "-"
@@ -19,6 +24,8 @@ import StorageService
         navigationItem.rightBarButtonItem = barButton 
     }
      
+     // MARK: - Event handlers
+
     @objc func tapInfoButton() {
         let infoVC = InfoViewController()
         present(infoVC, animated: true, completion: nil)

@@ -8,12 +8,10 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
+    // MARK: - UI
+
     let photoIdent = "photoCell"
-    private var collectionImages : [UIImage] = Photos.shared.examples
     let facade = ImagePublisherFacade()
-    
-    // MARK: Visual objects
-    
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 8
@@ -21,7 +19,7 @@ class PhotosViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         return layout
-    }() 
+    }()
     lazy var photosCollectionView: UICollectionView = {
         let photos = UICollectionView(frame: .zero, collectionViewLayout: layout).mask()
         photos.backgroundColor = .white
@@ -29,7 +27,11 @@ class PhotosViewController: UIViewController {
         return photos
     }()
     
-    // MARK: - Setup section
+    // MARK: - Private Properties
+
+    private var collectionImages : [UIImage] = Photos.shared.examples
+        
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +41,6 @@ class PhotosViewController: UIViewController {
         self.photosCollectionView.delegate = self
         setupConstraints()
         facade.subscribe(self)
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            photosCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            photosCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            photosCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,6 +56,19 @@ class PhotosViewController: UIViewController {
         facade.removeSubscription(for: self)
     }
     
+    // MARK: - Private Properties
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            photosCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            photosCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            photosCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            photosCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+    }
+   
+    // MARK: - Event Handlers
+
     @objc private func notificationAction(_ notification: NSNotification) {
         guard notification.object is String else { return }
         print("NotificationCenter in VC ")
