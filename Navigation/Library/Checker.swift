@@ -7,13 +7,20 @@ import UIKit
 
 class Checker {
     static let shared = Checker(login:"testDebug", password:"debug")
+    
+    //Mark: - Properties
+    
     let login: String
     let password: String
+    
+    //Mark: - Init
     
     private init (login: String, password: String) {
         self.login = login
         self.password = password
     }
+    
+    //Mark: - Methods
     
     func check(login: String, password: String) -> Bool {
             login == self.login && password == self.password
