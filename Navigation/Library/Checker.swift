@@ -23,11 +23,13 @@ class Checker {
     //Mark: - Methods
     
     func check(login: String, password: String) -> Bool {
-            login == self.login && password == self.password
-        }
+        print(login)
+   return login == self.login && password == self.password
+       
+    }
 }
 
 protocol LoginViewControllerDelegate {
     func check(login: String, password: String) -> Bool
-} 
+}
 
