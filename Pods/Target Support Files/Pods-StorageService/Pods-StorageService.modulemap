@@ -1,0 +1,6 @@
+module Pods_StorageService {
+  umbrella header "Pods-StorageService-umbrella.h"
+
+  export *
+  module * { export * }
+}

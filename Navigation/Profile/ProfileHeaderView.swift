@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ProfileHeaderView: UITableViewHeaderFooterView {
     
@@ -32,6 +33,11 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setupStatusLabel()
         setupStatusTextField()
         setupStatusButton()
+<<<<<<< HEAD
+        setupAvatarImage()
+        setupAddSubs()
+        setupContstraints()
+=======
         setupAvatarImage() 
         statusTextField.delegate = self
     }
@@ -46,6 +52,8 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
         fullNameLabel.textColor = .black
+<<<<<<< HEAD
+=======
         addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
             fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -58,12 +66,15 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         fullNameLabel.text = "\(userRelease.fullName)"
 #endif
+>>>>>>> feature/task
     }
     
     private func setupStatusLabel() {
         statusLabel.text = statusText
         statusLabel.font = .systemFont(ofSize: 17)
         statusLabel.textColor = .black
+<<<<<<< HEAD
+=======
         addSubview(statusLabel)
         NSLayoutConstraint.activate([
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
@@ -76,6 +87,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         statusLabel.text = "\(userRelease.status)"
 #endif
+>>>>>>> feature/task
     }
     
     private func setupStatusTextField() {
@@ -90,13 +102,6 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         statusTextField.layer.borderColor = UIColor.gray.cgColor
         statusTextField.attributedPlaceholder = NSAttributedString.init(string: "Ready...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-        addSubview(statusTextField)
-        NSLayoutConstraint.activate([
-            statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 16),
-            statusTextField.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
-            statusTextField.trailingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor),
-            statusTextField.heightAnchor.constraint(equalToConstant: 32),
-        ])
     }
     
     private func setupStatusButton() {
@@ -110,13 +115,6 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setStatusButton.setTitle("Show status", for: .normal)
         setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
-        addSubview(setStatusButton)
-        NSLayoutConstraint.activate([
-            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
-            setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            setStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            setStatusButton.heightAnchor.constraint(equalToConstant: 48),
-        ])
     }
     
     private func setupAvatarImage() {
@@ -146,7 +144,48 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         avatarBackground.backgroundColor = .darkGray
         avatarBackground.isHidden = true
         avatarBackground.alpha = 0
+    }
+    
+    private func setupAddSubs() {
+        [fullNameLabel, statusLabel, statusTextField, setStatusButton, avatarBackground, avatarImageView, returnAvatarButton].forEach { subs in
+            self.addSubviews(subs)
+        }
+    }
+    
+    private func setupContstraints() {
+        fullNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).inset(16)
+            make.right.equalTo(safeAreaInsets).inset(16)
+            make.left.equalTo(safeAreaLayoutGuide).inset(156)
+            make.height.equalTo(28)
+        }
+        statusLabel.snp.makeConstraints { make in
+            make.top.equalTo(fullNameLabel).inset(36)
+            make.right.left.equalTo(fullNameLabel)
+            make.height.equalTo(fullNameLabel)
+        }
+        statusTextField.snp.makeConstraints { make in
+            make.top.equalTo(statusLabel).inset(36)
+            make.left.right.equalTo(fullNameLabel)
+            make.height.equalTo(32)
+        }
+        setStatusButton.snp.makeConstraints { make in
+            make.top.equalTo(statusTextField).inset(66)
+            make.left.right.equalTo(safeAreaInsets).inset(16)
+            make.height.equalTo(48)
+        }
+        avatarImageView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).inset(16)
+            make.width.equalTo(128)
+            make.height.equalTo(128)
+        }
+        returnAvatarButton.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).inset(16)
+            make.right.equalTo(safeAreaInsets).inset(16)
+        }
         
+<<<<<<< HEAD
+=======
         addSubviews(avatarBackground, avatarImageView, returnAvatarButton)
         
         NSLayoutConstraint.activate([
@@ -163,6 +202,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         avatarImageView.image = userRelease.avatar
 #endif
+>>>>>>> feature/task
     }
     
     // MARK: - Event handlers

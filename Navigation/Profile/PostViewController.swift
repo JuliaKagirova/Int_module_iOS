@@ -15,6 +15,10 @@ import StorageService
      // MARK: - Life Cycle
 
       override func viewDidLoad() {
+<<<<<<< HEAD
+        super.viewDidLoad()
+    
+=======
         super.viewDidLoad() 
         title = post?.author ?? "-"
         view.backgroundColor = .systemYellow

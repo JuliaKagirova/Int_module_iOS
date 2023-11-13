@@ -21,6 +21,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) { 
         fatalError("Error")
     }
+<<<<<<< HEAD
+
+=======
      
     // MARK: - Private Methods
 

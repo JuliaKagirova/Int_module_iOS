@@ -5,6 +5,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
  class PostTableViewCell: UITableViewCell {
 
@@ -17,14 +18,12 @@ import StorageService
         label.numberOfLines = 2
         return label
     }()
-
     var postImage: UIImageView = {
         let image = UIImageView().mask()
-        image.backgroundColor = .black
+        image.backgroundColor =  .white
         image.contentMode = .scaleAspectFill
         return image
     }()
-
     var postDescription: UILabel = {
         let label = UILabel().mask()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -32,15 +31,12 @@ import StorageService
         label.numberOfLines = 0
         return label
     }()
-
     var postLikes: UILabel = {
         let label = UILabel().mask()
         label.font = .systemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
-
-
     var postViews: UILabel = {
         let label = UILabel().mask()
         label.font = .systemFont(ofSize: 16)
@@ -90,7 +86,11 @@ import StorageService
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
 
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+<<<<<<< HEAD
+            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.7),
+=======
             postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.8 ),
+>>>>>>> feature/task
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
 
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),

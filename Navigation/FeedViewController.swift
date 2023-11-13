@@ -14,6 +14,9 @@ final class FeedViewController: UIViewController {
         view.backgroundColor = .systemTeal
         createSubView()
     }
+<<<<<<< HEAD
+
+=======
      
     // MARK: - Private Methods
 

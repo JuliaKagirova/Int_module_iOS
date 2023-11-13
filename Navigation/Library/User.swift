@@ -1,6 +1,12 @@
 //  User.swift
 //  Navigation
 //
+<<<<<<< HEAD
+//  Created by Юлия Кагирова on 22.05.2023.
+//
+
+import Foundation
+=======
 //  Created by Юлия Кагирова on 07.05.2023.
 import UIKit
  
@@ -41,3 +47,4 @@ class TestUserService: UserService {
         return userRelease
     }
 }
+>>>>>>> feature/task

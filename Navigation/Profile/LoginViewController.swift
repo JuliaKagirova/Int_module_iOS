@@ -11,7 +11,6 @@ final class LoginViewController: UIViewController {
     
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
-    
     var vkLogo: UIImageView = {
         let imageView = UIImageView().mask()
         imageView.image = UIImage(named: "vkLogo")
@@ -47,7 +46,7 @@ final class LoginViewController: UIViewController {
     }()
     
     var loginField: UITextField = {
-        var login = UITextField().mask()
+        let login = UITextField().mask()
         login.placeholder = "Log In: testDebug"
         login.layer.borderColor = UIColor.lightGray.cgColor
         login.layer.borderWidth = 0.25
