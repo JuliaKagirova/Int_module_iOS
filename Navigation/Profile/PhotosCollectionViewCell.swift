@@ -7,9 +7,11 @@ import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
 
+    // MARK: -  Properties
+
     var photo = UIImageView().mask()
 
-    // MARK: - Init section
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +25,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
 
 =======
      
->>>>>>> feature/task
+    // MARK: - Private Methods
+
     private func setupConstraints() {
         self.contentView.addSubview(photo)
         NSLayoutConstraint.activate([ 

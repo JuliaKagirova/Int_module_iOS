@@ -8,7 +8,8 @@ import SnapKit
 
 final class ProfileHeaderView: UITableViewHeaderFooterView {
     
-    // MARK: Visual objects
+    // MARK: - UI
+    
     var fullNameLabel = UILabel().mask()
     var avatarImageView = UIImageView().mask()
     var statusLabel = UILabel().mask()
@@ -18,14 +19,16 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var avatarBackground = UIView()
     var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
     var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
+    
+    // MARK: Private UI
+
     private var statusText = "Ready to help"
-    private var avatarOriginPoint = CGPoint() 
+    private var avatarOriginPoint = CGPoint()
      
-    // MARK: - Setup section
+    // MARK: - Init
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-    
         setupNameLabel()
         setupStatusLabel()
         setupStatusTextField()
@@ -36,8 +39,6 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setupContstraints()
 =======
         setupAvatarImage() 
->>>>>>> feature/task
-        
         statusTextField.delegate = self
     }
 
@@ -45,6 +46,8 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         fatalError("error")
     }
     
+    // MARK: - Private Methods
+
     private func setupNameLabel() {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
