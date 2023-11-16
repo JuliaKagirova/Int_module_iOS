@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  ProtocolObserver.swift
 //  Navigation
 //
 //  Created by Юлия Кагирова on 17.11.2023.
