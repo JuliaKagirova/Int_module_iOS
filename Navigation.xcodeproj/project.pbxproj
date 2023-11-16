@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		1F4F811E2A1B7656003C10AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4F811D2A1B7656003C10AD /* User.swift */; };
+		1F16945E2B06D1F800EC5EC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16945D2B06D1F800EC5EC9 /* User.swift */; };
+		1F1694602B06D33F00EC5EC9 /* ProtocolObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */; };
+		1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694612B06D8C600EC5EC9 /* CustomButton.swift */; };
 		1F4F81282A24C72B003C10AD /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4F81272A24C72B003C10AD /* iOSIntPackage */; };
-
-		1F4F81202A1B795C003C10AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4F811F2A1B795C003C10AD /* User.swift */; };
 		1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6B2A8619B40010CAC3 /* Checker.swift */; };
 		1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */; };
 		1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */; };
-
 		1FEC842329EE98AB000A8F5E /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842229EE98AB000A8F5E /* StorageService.docc */; };
 		1FEC842929EE98AB000A8F5E /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEC841F29EE98AA000A8F5E /* StorageService.framework */; };
 		1FEC843029EE98AB000A8F5E /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842F29EE98AB000A8F5E /* StorageServiceTests.swift */; };
@@ -84,14 +82,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-
-		1F4F811D2A1B7656003C10AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-
-		1F4F811F2A1B795C003C10AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1F16945D2B06D1F800EC5EC9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolObserver.swift; sourceTree = "<group>"; };
+		1F1694612B06D8C600EC5EC9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1F721F6B2A8619B40010CAC3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
-
 		1FEC841F29EE98AA000A8F5E /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEC842129EE98AB000A8F5E /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		1FEC842229EE98AB000A8F5E /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -230,14 +226,12 @@
 				36528E3B284F725E00965BA4 /* LayoutConstants.swift */,
 				36C5F05D2850B4A6005EFC6C /* PhotoExamples.swift */,
 				36C5F0642850C9D1005EFC6C /* PostExamples.swift */,
-
-				1F4F811D2A1B7656003C10AD /* User.swift */,
-
-				1F4F811F2A1B795C003C10AD /* User.swift */,
 				1F721F6B2A8619B40010CAC3 /* Checker.swift */,
 				1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */,
 				1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */,
-
+				1F16945D2B06D1F800EC5EC9 /* User.swift */,
+				1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */,
+				1F1694612B06D8C600EC5EC9 /* CustomButton.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -453,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36528E3F284FDF9100965BA4 /* PostTableViewCell.swift in Sources */,
+				1F1694602B06D33F00EC5EC9 /* ProtocolObserver.swift in Sources */,
 				3601A2BC28494D5D000D261A /* FeedViewController.swift in Sources */,
 				1FEC844829EFCB8B000A8F5E /* PostExamples.swift in Sources */,
 				3601A2BE28494E4F000D261A /* ProfileViewController.swift in Sources */,
@@ -460,12 +455,8 @@
 				1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */,
 				3601A2C028495339000D261A /* PostViewController.swift in Sources */,
 				36528E37284F5E3800965BA4 /* LoginViewController.swift in Sources */,
-
-				1F4F811E2A1B7656003C10AD /* User.swift in Sources */,
-
+				1F16945E2B06D1F800EC5EC9 /* User.swift in Sources */,
 				1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */,
-				1F4F81202A1B795C003C10AD /* User.swift in Sources */,
-
 				36528E41284FE38C00965BA4 /* ExtensionUIView.swift in Sources */,
 				36C5F05E2850B4A6005EFC6C /* PhotoExamples.swift in Sources */,
 				3601A2C7284A776A000D261A /* ProfileHeaderView.swift in Sources */,
@@ -473,6 +464,7 @@
 				1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */,
 				36528E39284F700900965BA4 /* ExtensionUIImage.swift in Sources */,
 				36C5F05C2850B1B1005EFC6C /* PhotosTableViewCell.swift in Sources */,
+				1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */,
 				3601A2C42849E232000D261A /* InfoViewController.swift in Sources */,
 				36C5F0632850B7B6005EFC6C /* PhotosCollectionViewCell.swift in Sources */,
 				36528E3C284F725E00965BA4 /* LayoutConstants.swift in Sources */,
@@ -845,8 +837,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = imagepublisher;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

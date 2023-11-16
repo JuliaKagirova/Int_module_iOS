@@ -7,7 +7,8 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    // MARK: Visual content
+    // MARK: - Properties
+    
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
     var vkLogo: UIImageView = {
@@ -26,22 +27,6 @@ final class LoginViewController: UIViewController {
         stack.backgroundColor = .systemGray6
         stack.clipsToBounds = true
         return stack
-    }()
-    
-    var loginButton: UIButton = {
-        let button = UIButton().mask()
-        if let pixel = UIImage(named: "blue_pixel") {
-            button.setBackgroundImage(pixel.image(alpha: 1), for: .normal)
-            button.setBackgroundImage(pixel.image(alpha: 0.8), for: .selected)
-            button.setBackgroundImage(pixel.image(alpha: 0.6), for: .highlighted)
-            button.setBackgroundImage(pixel.image(alpha: 0.4), for: .disabled)
-        }
-        button.setTitle("Login", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(nil, action: #selector(touchLoginButton), for: .touchUpInside)
-        button.layer.cornerRadius = LayoutConstants.cornerRadius
-        button.clipsToBounds = true
-        return button
     }()
     
     var loginField: UITextField = {
@@ -76,30 +61,27 @@ final class LoginViewController: UIViewController {
         return password
     }()
     var loginDelegate: LoginViewControllerDelegate?
+    lazy var loginButton = CustomButton(title: "Login", titleColor: .white, buttonAction: checkID)
     
-    // MARK: - Setup section
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.isHidden = true
-        
         setupViews()
     }
     
+    // MARK: - Private Methods
+
     private func setupViews() {
         view.addSubview(loginScrollView)
         loginScrollView.addSubview(contentView)
-        
         contentView.addSubviews(vkLogo, loginStackView, loginButton)
-        
         loginStackView.addArrangedSubview(loginField)
         loginStackView.addArrangedSubview(passwordField)
-        
         loginField.delegate = self
         passwordField.delegate = self
-        
         setupConstraints()
     }
 
@@ -160,13 +142,9 @@ final class LoginViewController: UIViewController {
         }
     }
     private func alertButton() {
-        let button = UIButton().mask()
-        button.setTitle("Access is denied", for: .normal)
+        let button = CustomButton(title: "Access is denied", titleColor: .white, buttonAction: alerButtonTapped)
         button.backgroundColor = .systemGray
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = LayoutConstants.cornerRadius
-        button.addTarget(self, action: #selector(tapAlertButton), for: .touchUpInside)
-                
+
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnScreen))
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.numberOfTouchesRequired = 1
@@ -182,8 +160,7 @@ final class LoginViewController: UIViewController {
         ])
     }
     
-    @objc func tapAlertButton() {
-        
+    private func alerButtonTapped() {
         let alert = UIAlertController(title: "You entered the wrong credentials",
                                       message: "Enter the credentials again?",
                                       preferredStyle: .alert)
@@ -202,6 +179,10 @@ final class LoginViewController: UIViewController {
         alert.addAction(no)
 
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func tapAlertButton() {
+        alerButtonTapped()
     }
     @objc private func didTapOnScreen() {
         tapAlertButton()

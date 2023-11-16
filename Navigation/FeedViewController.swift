@@ -7,16 +7,16 @@ import UIKit
 
 final class FeedViewController: UIViewController {
 
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
         createSubView()
     }
-<<<<<<< HEAD
 
-=======
-     
->>>>>>> feature/task
+    //MARK: - Private Methods
+    
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -34,20 +34,19 @@ final class FeedViewController: UIViewController {
     }
     
     private func addPostButton(title: String, color: UIColor, to view: UIStackView, selector: Selector) {
-        let button = UIButton().mask()
-        button.setTitle(title, for: .normal)
+        let button = CustomButton(title: title, titleColor: .white, buttonAction: postButton)
         button.backgroundColor = color
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = LayoutConstants.cornerRadius
-        button.addTarget(self, action: selector, for: .touchUpInside)
         view.addArrangedSubview(button)
     }
-    
-    @objc func tapPostButton() {
+    private func postButton() {
         let post = postExamples[0]
         
         let postVC = PostViewController()
         postVC.post = post
         navigationController?.pushViewController(postVC, animated: true)
+    }
+    //MARK: - Event Handler
+    @objc func tapPostButton() {
+        postButton()
     }
 }

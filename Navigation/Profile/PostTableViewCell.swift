@@ -65,11 +65,7 @@ import iOSIntPackage
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
 
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-<<<<<<< HEAD
-            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.7),
-=======
             postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.8 ),
->>>>>>> feature/task
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
 
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),
@@ -90,12 +86,8 @@ import iOSIntPackage
     
     func configPostArray(post: Post) {
         postAuthor.text = post.author
-<<<<<<< HEAD
-        postDescription.text = post.description
-=======
         postDescription.text = post.description 
         postImage.image = UIImage(named: post.image)
->>>>>>> feature/task
         postLikes.text = "Likes: \(post.likes)"
         viewCounter = post.views
         postViews.text = "Views: \(viewCounter)"

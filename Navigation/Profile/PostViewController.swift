@@ -7,16 +7,16 @@ import UIKit
 import StorageService
  
  final class PostViewController: UIViewController {
-    
+     
+    //MARK: - Properties
+     
       var post: Post?
+     
+     //MARK: - Life Cycle
+     
       override func viewDidLoad() {
-<<<<<<< HEAD
-        super.viewDidLoad()
-    
-=======
         super.viewDidLoad() 
         
->>>>>>> feature/task
         title = post?.author ?? "-"
         view.backgroundColor = .systemYellow
         
@@ -24,6 +24,8 @@ import StorageService
         let barButton = UIBarButtonItem(title: "Info", style: .done, target: self, action: #selector(tapInfoButton))
         navigationItem.rightBarButtonItem = barButton 
     }
+     
+     //MARK: - Event Handler
      
     @objc func tapInfoButton() {
         let infoVC = InfoViewController()
