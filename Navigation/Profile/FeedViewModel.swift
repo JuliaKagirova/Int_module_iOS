@@ -5,4 +5,8 @@
 //  Created by Юлия Кагирова on 04.12.2023.
 //
 
-import Foundation
+import UIKit
+
+final class FeedViewModel {
+    
+}
