@@ -8,7 +8,8 @@ import SnapKit
 
 final class ProfileHeaderView: UITableViewHeaderFooterView {
     
-    // MARK: Visual objects
+    // MARK: - UI
+    
     var fullNameLabel = UILabel().mask()
     var avatarImageView = UIImageView().mask()
     var statusLabel = UILabel().mask()
@@ -20,12 +21,12 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     lazy var setStatusButton = CustomButton(title: "Show status", titleColor: .white, buttonAction: statusButton)
     
     //MARK: - Private Properties
-    
+  
     private var statusText = "Ready to help"
-    private var avatarOriginPoint = CGPoint() 
+    private var avatarOriginPoint = CGPoint()
      
     // MARK: - Life Cycle
-    
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupNameLabel()
@@ -42,9 +43,9 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     required init?(coder: NSCoder) {
         fatalError("error")
     }
-    
-    //MARK: - Private Properties
-    
+
+    // MARK: - Private Methods
+  
     private func setupNameLabel() {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)

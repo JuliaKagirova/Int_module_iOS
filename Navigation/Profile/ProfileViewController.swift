@@ -6,7 +6,8 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    //MARK: - Properties
+  
+    // MARK: - Properties
     
     static let headerIdent = "header"
     static let photoIdent = "photo"
@@ -39,7 +40,7 @@ final class ProfileViewController: UIViewController {
         Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
     }
     
-    //MARK: - Private Properties
+    //MARK: - Private Methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -49,8 +50,10 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+  
     //MARK: - Event Handler
     
+
     @objc func reloadTableView() {
         Self.postTableView.reloadData()
         Self.postTableView.refreshControl?.endRefreshing()

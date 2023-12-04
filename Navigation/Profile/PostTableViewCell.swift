@@ -8,11 +8,10 @@ import StorageService
 import iOSIntPackage
 
  class PostTableViewCell: UITableViewCell {
-    
-    private var viewCounter = 0
 
-    // MARK: Visual objects
-    var postAuthor: UILabel = { 
+    // MARK: - UI
+     
+    var postAuthor: UILabel = {
         let label = UILabel().mask()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -45,7 +44,11 @@ import iOSIntPackage
         return label
     }()
 
-    // MARK: - Init section
+     // MARK: - Private Properties
+
+    private var viewCounter = 0
+     
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,6 +61,24 @@ import iOSIntPackage
         fatalError("Error")
     }
      
+     // MARK: -  Methods
+     
+     func configPostArray(post: Post) {
+         postAuthor.text = post.author
+         postDescription.text = post.description
+         postImage.image = UIImage(named: post.image)
+         postLikes.text = "Likes: \(post.likes)"
+         viewCounter = post.views
+         postViews.text = "Views: \(viewCounter)"
+     }
+     
+     func incrementPostViewsCounter() {
+         viewCounter += 1
+         postViews.text = "Views: \(viewCounter)"
+     }
+
+     // MARK: - Private Methods
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             postAuthor.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.indent),
@@ -103,6 +124,5 @@ import iOSIntPackage
              postImage.image = image
          }
      }
+
 }
-
-

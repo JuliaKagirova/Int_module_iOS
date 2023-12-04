@@ -57,16 +57,17 @@ final class FeedViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         createSubView()
         setups()
     }
-    
-    //MARK: - Private Methods
-    
+
+     
+    // MARK: - Private Methods
+
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -88,14 +89,15 @@ final class FeedViewController: UIViewController {
         button.backgroundColor = color
         view.addArrangedSubview(button)
     }
+
     private func postButton() {
-        let post = postExamples[0]
+      let post = postExamples[0]
         
         let postVC = PostViewController()
         postVC.post = post
         navigationController?.pushViewController(postVC, animated: true)
     }
-    
+  
     private func checkPass() {
         guard let pass = newTextField.text, pass != "" else {
             print("empty")
@@ -111,8 +113,8 @@ final class FeedViewController: UIViewController {
             colorButton.backgroundColor = .systemRed
             colorButton.text = "Wrong password"
         }
-    }
-    private func setups() {
+     }
+   private func setups() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -129,10 +131,11 @@ final class FeedViewController: UIViewController {
             stackView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, constant: -32)
         ])
     }
+
     
-    //MARK: - Event Handler
-    
-    @objc func tapPostButton() {
+    // MARK: - Event Handlers
+
+   @objc func tapPostButton() {
         postButton()
     }
 }

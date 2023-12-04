@@ -14,14 +14,13 @@ final class InfoViewController: UIViewController {
         view.backgroundColor = .systemGray6
         createAlertButton()
     }
-    
-    //MARK: - Private Methods
-    
+  
+    // MARK: - Private Methods
+
     private func createAlertButton() {
         let button = CustomButton(title: "Alert", titleColor: .white, buttonAction: alertButton)
         button.backgroundColor = .systemPink
         view.addSubview(button)
-        
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
@@ -29,7 +28,7 @@ final class InfoViewController: UIViewController {
             button.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
-    private func alertButton() {
+private func alertButton() {
         let alert = UIAlertController(title: "Attention",
                                       message: "How are you feeling?",
                                       preferredStyle: .alert)

@@ -7,7 +7,7 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
     
-    // MARK: Visual objects
+    // MARK: - UI
     
     var labelPhotos: UILabel = {
         let label = UILabel().mask()
@@ -37,13 +37,11 @@ class PhotosTableViewCell: UITableViewCell {
         preview.clipsToBounds = true
         return preview
     }
-    // MARK: - Init section
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         contentView.addSubviews(labelPhotos, arrowImage, stackViewImage)
-        
         setupPreviews()
         setupConstraints()
     }
@@ -52,6 +50,8 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("Error")
     }
     
+    // MARK: - Private Methods
+
     // get 3 preview images
     private func setupPreviews() {
         for ind in 0...2 {
