@@ -1,15 +1,10 @@
 //  User.swift
 //  Navigation
 //
-<<<<<<< HEAD
-//  Created by Юлия Кагирова on 22.05.2023.
+//  Created by Юлия Кагирова on 17.11.2023.
 //
-
-import Foundation
-=======
-//  Created by Юлия Кагирова on 07.05.2023.
 import UIKit
- 
+
 public class User {
      var login = String()
      var fullName = String()
@@ -21,7 +16,7 @@ public class User {
         self.fullName = fullName
         self.status = status
         self.avatar = avatar
-    } 
+    }
 }
 protocol UserService {
   func identification(login: String) -> User?
@@ -47,4 +42,3 @@ class TestUserService: UserService {
         return userRelease
     }
 }
->>>>>>> feature/task

@@ -8,8 +8,8 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    // MARK: - UI
-
+    // MARK: - Proerties
+    
     let photoIdent = "photoCell"
     let facade = ImagePublisherFacade()
     lazy var layout: UICollectionViewFlowLayout = {
@@ -28,9 +28,9 @@ class PhotosViewController: UIViewController {
     }()
     
     // MARK: - Private Properties
-
+    
     private var collectionImages : [UIImage] = Photos.shared.examples
-        
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -49,6 +49,7 @@ class PhotosViewController: UIViewController {
         facade.addImagesWithTimer(time: 1, repeat: 40, userImages: collectionImages)
         self.receive(images: collectionImages)
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
@@ -56,8 +57,8 @@ class PhotosViewController: UIViewController {
         facade.removeSubscription(for: self)
     }
     
-    // MARK: - Private Properties
-
+    // MARK: - Private Methods
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             photosCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -66,7 +67,7 @@ class PhotosViewController: UIViewController {
             photosCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
-   
+    
     // MARK: - Event Handlers
 
     @objc private func notificationAction(_ notification: NSNotification) {
@@ -78,24 +79,26 @@ class PhotosViewController: UIViewController {
 // MARK: - Extensions
 
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let countItem: CGFloat = 2 
+        let countItem: CGFloat = 2
         let accessibleWidth = collectionView.frame.width - 32
         let widthItem = (accessibleWidth / countItem)
         return CGSize(width: widthItem, height: widthItem * 0.7) //0.56
     }
 }
 
-extension PhotosViewController: UICollectionViewDataSource { 
-
+extension PhotosViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return collectionImages.count
-    }
+        return collectionImages.count
 
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoIdent, for: indexPath) as? PhotosCollectionViewCell else { return UICollectionViewCell()}
-        cell.configCellCollection(photo: collectionImages[indexPath.item])
+        cell.configCellCollection(photo: collectionImages[indexPath.item])      
+
         return cell
     }
 }
@@ -106,7 +109,8 @@ extension PhotosViewController: ImageLibrarySubscriber {
         photosCollectionView.reloadData()
     }
 }
-    // NotificationCenter
-    extension NSNotification.Name {
-        static let reloadPhoto = NSNotification.Name("reloadPhoto")
+
+extension NSNotification.Name {
+    static let reloadPhoto = NSNotification.Name("reloadPhoto")
+
     }

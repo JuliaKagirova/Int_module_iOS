@@ -7,12 +7,13 @@ import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
 
-    // MARK: -  Properties
 
+    //MARK: - Properties
+    
     var photo = UIImageView().mask()
 
-    // MARK: - Init
-    
+    // MARK: - Life Cycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraints()
@@ -21,12 +22,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) { 
         fatalError("Error")
     }
-<<<<<<< HEAD
 
-=======
-     
-    // MARK: - Private Methods
-
+    //MARK: - Private Methods
+    
     private func setupConstraints() {
         self.contentView.addSubview(photo)
         NSLayoutConstraint.activate([ 

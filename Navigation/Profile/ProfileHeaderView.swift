@@ -14,30 +14,28 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var avatarImageView = UIImageView().mask()
     var statusLabel = UILabel().mask()
     var statusTextField = UITextField().mask()
-    var setStatusButton = UIButton().mask()
     var returnAvatarButton = UIButton().mask()
     var avatarBackground = UIView()
     var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
     var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
+    lazy var setStatusButton = CustomButton(title: "Show status", titleColor: .white, buttonAction: statusButton)
     
-    // MARK: Private UI
-
+    //MARK: - Private Properties
+  
     private var statusText = "Ready to help"
     private var avatarOriginPoint = CGPoint()
      
-    // MARK: - Init
-    
+    // MARK: - Life Cycle
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupNameLabel()
         setupStatusLabel()
         setupStatusTextField()
         setupStatusButton()
-<<<<<<< HEAD
         setupAvatarImage()
         setupAddSubs()
         setupContstraints()
-=======
         setupAvatarImage() 
         statusTextField.delegate = self
     }
@@ -45,15 +43,14 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     required init?(coder: NSCoder) {
         fatalError("error")
     }
-    
-    // MARK: - Private Methods
 
+    // MARK: - Private Methods
+  
     private func setupNameLabel() {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
         fullNameLabel.textColor = .black
-<<<<<<< HEAD
-=======
+
         addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
             fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -66,15 +63,12 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         fullNameLabel.text = "\(userRelease.fullName)"
 #endif
->>>>>>> feature/task
     }
     
     private func setupStatusLabel() {
         statusLabel.text = statusText
         statusLabel.font = .systemFont(ofSize: 17)
         statusLabel.textColor = .black
-<<<<<<< HEAD
-=======
         addSubview(statusLabel)
         NSLayoutConstraint.activate([
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
@@ -87,7 +81,6 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         statusLabel.text = "\(userRelease.status)"
 #endif
->>>>>>> feature/task
     }
     
     private func setupStatusTextField() {
@@ -105,16 +98,11 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     }
     
     private func setupStatusButton() {
-        setStatusButton.backgroundColor = .systemBlue
-        setStatusButton.layer.cornerRadius = LayoutConstants.cornerRadius
         setStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
         setStatusButton.layer.shadowColor = UIColor.black.cgColor
         setStatusButton.layer.shadowRadius = 4
         setStatusButton.layer.shadowOpacity = 0.7
         setStatusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        setStatusButton.setTitle("Show status", for: .normal)
-        setStatusButton.setTitleColor(.white, for: .normal)
-        setStatusButton.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
     }
     
     private func setupAvatarImage() {
@@ -184,8 +172,6 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
             make.right.equalTo(safeAreaInsets).inset(16)
         }
         
-<<<<<<< HEAD
-=======
         addSubviews(avatarBackground, avatarImageView, returnAvatarButton)
         
         NSLayoutConstraint.activate([
@@ -202,7 +188,9 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
 #else
         avatarImageView.image = userRelease.avatar
 #endif
->>>>>>> feature/task
+    }
+    private func  statusButton() {
+        statusLabel.text = statusText
     }
     
     // MARK: - Event handlers
@@ -212,7 +200,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     }
     
     @objc private func statusButtonPressed() {
-        statusLabel.text = statusText
+        statusButton()
     }
     
     @objc private func didTapOnAvatar() {

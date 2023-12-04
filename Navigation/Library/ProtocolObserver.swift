@@ -1,12 +1,12 @@
 //
 //  ProtocolObserver.swift
 //  Navigation
-//
-//  Created by Юлия Кагирова on 25.10.2023.
+//  Created by Юлия Кагирова on 17.11.2023.
 //
 
-import Foundation
+import UIKit
 
 protocol Subscriber: AnyObject {
-    func update(photos: [Photos]) 
+    func update(photos: [Photos])
+
 }

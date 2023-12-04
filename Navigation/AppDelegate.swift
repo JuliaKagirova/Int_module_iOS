@@ -9,11 +9,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? 
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> feature/task
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         profileNC.tabBarItem = UITabBarItem(title: "Profile",
                                             image: UIImage(systemName: "person.crop.circle"),
                                             selectedImage: UIImage(systemName: "person.crop.circle.fill")) 
-        
-        let feedVC = FeedViewController()
+        let model = FeedModel()
+        let feedVC = FeedViewController(model: model)
         let feedNC = UINavigationController(rootViewController: feedVC)
         feedNC.tabBarItem = UITabBarItem(title: "Feed",
                                          image: UIImage(systemName: "text.bubble"),

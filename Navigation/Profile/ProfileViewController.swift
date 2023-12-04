@@ -6,12 +6,12 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    
+  
     // MARK: - Properties
     
     static let headerIdent = "header"
     static let photoIdent = "photo"
-    static let postIdent = "post" 
+    static let postIdent = "post"
     
     static var postTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped).mask()
@@ -20,25 +20,27 @@ final class ProfileViewController: UIViewController {
         table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
         return table
     }()
-     
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
-            super.viewDidLoad() 
-    #if DEBUG
-            view.backgroundColor = .systemPink
-    #else
-            view.backgroundColor = .systemGreen
-    #endif
-            view.addSubview(Self.postTableView)
-            setupConstraints()
-            Self.postTableView.dataSource = self
-            Self.postTableView.delegate = self
-            Self.postTableView.refreshControl = UIRefreshControl()
-            Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
-        }
+        super.viewDidLoad()
+        
+#if DEBUG
+        view.backgroundColor = .systemPink
+#else
+        view.backgroundColor = .systemGreen
+#endif
+        
+        view.addSubview(Self.postTableView)
+        setupConstraints()
+        Self.postTableView.dataSource = self
+        Self.postTableView.delegate = self
+        Self.postTableView.refreshControl = UIRefreshControl()
+        Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
+    }
     
-    // MARK: - Private Methods
+    //MARK: - Private Methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -48,8 +50,9 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
-    // MARK: - Event handlers
+  
+    //MARK: - Event Handler
+    
 
     @objc func reloadTableView() {
         Self.postTableView.reloadData()
@@ -60,7 +63,7 @@ final class ProfileViewController: UIViewController {
 // MARK: - Extensions
 
 extension ProfileViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
@@ -70,7 +73,6 @@ extension ProfileViewController: UITableViewDataSource {
             return 1
         }
     }
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

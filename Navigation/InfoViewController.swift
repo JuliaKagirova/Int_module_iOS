@@ -6,24 +6,20 @@
 import UIKit
 
 final class InfoViewController: UIViewController {
-
-    // MARK: - Life Cycle
-
+    
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         createAlertButton()
     }
-    
+  
     // MARK: - Private Methods
 
     private func createAlertButton() {
-        let button = UIButton().mask()
-        button.setTitle("Alert", for: .normal)
+        let button = CustomButton(title: "Alert", titleColor: .white, buttonAction: alertButton)
         button.backgroundColor = .systemPink
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = LayoutConstants.cornerRadius
-        button.addTarget(self, action: #selector(tapAlertButton), for: .touchUpInside)
         view.addSubview(button)
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -32,10 +28,7 @@ final class InfoViewController: UIViewController {
             button.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
-    
-    // MARK: - Event Handlers
-
-    @objc func tapAlertButton() {
+private func alertButton() {
         let alert = UIAlertController(title: "Attention",
                                       message: "How are you feeling?",
                                       preferredStyle: .alert)
@@ -49,7 +42,13 @@ final class InfoViewController: UIViewController {
             print("Okey")
         }
         alert.addAction(so)
-
+        
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: - Event Handler
+    
+    @objc func tapAlertButton() {
+        alertButton()
     }
 }

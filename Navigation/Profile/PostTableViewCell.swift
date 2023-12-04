@@ -86,11 +86,7 @@ import iOSIntPackage
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
 
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-<<<<<<< HEAD
-            postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.7),
-=======
             postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.8 ),
->>>>>>> feature/task
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
 
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),
@@ -106,4 +102,27 @@ import iOSIntPackage
             postViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.indent)
         ])
     }
+
+    // MARK: - Run loop
+    
+    func configPostArray(post: Post) {
+        postAuthor.text = post.author
+        postDescription.text = post.description 
+        postImage.image = UIImage(named: post.image)
+        postLikes.text = "Likes: \(post.likes)"
+        viewCounter = post.views
+        postViews.text = "Views: \(viewCounter)"
+        imageFilter(image: UIImage(imageLiteralResourceName: post.image))
+    }
+    
+    func incrementPostViewsCounter() {
+        viewCounter += 1
+        postViews.text = "Views: \(viewCounter)"
+    }
+     func imageFilter(image: UIImage) {
+         ImageProcessor().processImage(sourceImage: image, filter: ColorFilter.noir) { image in
+             postImage.image = image
+         }
+     }
+
 }
