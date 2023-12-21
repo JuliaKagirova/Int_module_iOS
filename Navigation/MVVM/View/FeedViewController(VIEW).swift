@@ -8,7 +8,7 @@ import UIKit
 final class FeedViewController: UIViewController {
     
     //MARK: - Properties
-    
+    var viewmodel = FeedViewModel()
     let model: FeedModel
     var newTextField: UITextField = {
         let passField = UITextField().mask()

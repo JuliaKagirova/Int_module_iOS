@@ -7,11 +7,15 @@
 
 import UIKit
 
-final class FeedModel {
+ class FeedModel {
     
     //MARK: - Properties
     
     let secretWord: String = "Pass"
+    
+    //MARK: - Life Cycle
+     
+   
     
     //MARK: - Methods
     

@@ -8,5 +8,6 @@
 import UIKit
 
 final class FeedViewModel {
+    //вся логика
     
 }
