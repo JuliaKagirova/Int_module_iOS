@@ -22,8 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                             image: UIImage(systemName: "person.crop.circle"),
                                             selectedImage: UIImage(systemName: "person.crop.circle.fill")) 
         let model = FeedModel()
-        let feedVC = FeedViewController(model: model)
-        let feedNC = UINavigationController(rootViewController: feedVC)
+        let viewModel = FeedViewModel(model: model)
+        let fVC = FeedViewController(viewModel: viewModel)
+
+        let feedNC = UINavigationController(rootViewController: fVC)
         feedNC.tabBarItem = UITabBarItem(title: "Feed",
                                          image: UIImage(systemName: "text.bubble"),
                                          selectedImage: UIImage(systemName: "text.bubble.fill"))
