@@ -1,7 +1,5 @@
-//
 //  FeedViewController.swift
 //  Navigation
-//
 
 import UIKit
 
@@ -9,7 +7,7 @@ final class FeedViewController: UIViewController {
     
     //MARK: - Properties
     
-    let model: FeedModel
+    private var viewModel: FeedViewModelProtocol
     var newTextField: UITextField = {
         let passField = UITextField().mask()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
@@ -29,7 +27,7 @@ final class FeedViewController: UIViewController {
         return passField
     }()
     lazy var checkGuessButton: CustomButton = {
-        let button = CustomButton(title: "Password", titleColor: .white, buttonAction: checkPass)
+        let button = CustomButton(title: "Password", titleColor: .white, buttonAction: didTapCheckButton)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.25
         return button
@@ -44,13 +42,14 @@ final class FeedViewController: UIViewController {
         colorButton.textColor = .white
         colorButton.font = .systemFont(ofSize: 16)
         colorButton.textAlignment = .center
+        colorButton.clipsToBounds = true
         return colorButton
     }()
     
     //MARK: - Life Cycle
     
-    init(model: FeedModel) {
-        self.model = model
+    init(viewModel: FeedViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,6 +62,7 @@ final class FeedViewController: UIViewController {
         view.backgroundColor = .systemBackground
         createSubView()
         setups()
+        bindingModel()
     }
 
      
@@ -89,32 +89,15 @@ final class FeedViewController: UIViewController {
         button.backgroundColor = color
         view.addArrangedSubview(button)
     }
-
+    
     private func postButton() {
-      let post = postExamples[0]
-        
+        let post = postExamples[0]
         let postVC = PostViewController()
         postVC.post = post
         navigationController?.pushViewController(postVC, animated: true)
     }
   
-    private func checkPass() {
-        guard let pass = newTextField.text, pass != "" else {
-            print("empty")
-            return
-            }
-        if model.check(word: pass) {
-            print("OK")
-            colorButton.backgroundColor = .systemGreen
-            colorButton.text = "OK"
-            
-        } else {
-            print("Access is denied")
-            colorButton.backgroundColor = .systemRed
-            colorButton.text = "Wrong password"
-        }
-     }
-   private func setups() {
+    private func setups() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -123,7 +106,6 @@ final class FeedViewController: UIViewController {
         stackView.addArrangedSubview(newTextField)
         stackView.addArrangedSubview(checkGuessButton)
         stackView.addArrangedSubview(colorButton)
-        
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 200),
@@ -133,9 +115,28 @@ final class FeedViewController: UIViewController {
     }
 
     
-    // MARK: - Event Handlers
-
-   @objc func tapPostButton() {
+    private func bindingModel() {
+        viewModel.stateChanger = { [weak self] state in
+            guard let self else { return }
+            switch state {
+            case .loading:
+                ()
+            case .success:
+                self.colorButton.backgroundColor = .systemGreen
+                self.colorButton.text = "OK"
+            case .error:
+                self.colorButton.backgroundColor = .systemRed
+                self.colorButton.text = "Wrong password"
+            }
+        }
+    }
+    
+    //MARK: - Event Handler
+    
+    @objc func tapPostButton() {
         postButton()
+    }
+    func didTapCheckButton() {
+        viewModel.didTapCheckButton(text: newTextField.text)
     }
 }
