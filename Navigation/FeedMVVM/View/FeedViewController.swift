@@ -5,10 +5,9 @@ import UIKit
 
 final class FeedViewController: UIViewController {
     
-    //MARK: - Properties
-    
-    private var viewModel: FeedViewModelProtocol
-    var newTextField: UITextField = {
+    //MARK: - Private Properties
+     var viewModel: FeedViewModelProtocol
+    private lazy var newTextField: UITextField = {
         let passField = UITextField().mask()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         passField.leftView = paddingView
@@ -26,13 +25,13 @@ final class FeedViewController: UIViewController {
         passField.backgroundColor = .systemFill
         return passField
     }()
-    lazy var checkGuessButton: CustomButton = {
+    private lazy var checkGuessButton: CustomButton = {
         let button = CustomButton(title: "Password", titleColor: .white, buttonAction: didTapCheckButton)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.25
         return button
     }()
-    let colorButton: UILabel = {
+    private lazy var colorButton: UILabel = {
         let colorButton = UILabel()
         colorButton.backgroundColor = .white
         colorButton.layer.cornerRadius = LayoutConstants.cornerRadius
@@ -95,7 +94,7 @@ final class FeedViewController: UIViewController {
         postVC.post = post
         navigationController?.pushViewController(postVC, animated: true)
     }
-  
+    
     private func setups() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical

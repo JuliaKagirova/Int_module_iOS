@@ -8,22 +8,20 @@ import SnapKit
 
 final class ProfileHeaderView: UITableViewHeaderFooterView {
     
-    // MARK: Visual objects
-    var fullNameLabel = UILabel().mask()
-    var avatarImageView = UIImageView().mask()
-    var statusLabel = UILabel().mask()
-    var statusTextField = UITextField().mask()
-    var returnAvatarButton = UIButton().mask()
-    var avatarBackground = UIView()
-    var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
-    var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
-    lazy var setStatusButton = CustomButton(title: "Show status", titleColor: .white, buttonAction: statusButton)
+    // MARK: - Private Properties
     
-    //MARK: - Private Properties
+    private lazy var fullNameLabel = UILabel().mask()
+    private lazy var avatarImageView = UIImageView().mask()
+    private lazy var statusLabel = UILabel().mask()
+    private lazy var statusTextField = UITextField().mask()
+    private lazy var returnAvatarButton = UIButton().mask()
+    private lazy var avatarBackground = UIView()
+    private lazy var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
+    private lazy var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
+    private lazy var setStatusButton = CustomButton(title: "Show status", titleColor: .white, buttonAction: statusButton)
+    private lazy var statusText = "Ready to help"
+    private lazy var avatarOriginPoint = CGPoint()
     
-    private var statusText = "Ready to help"
-    private var avatarOriginPoint = CGPoint() 
-     
     // MARK: - Life Cycle
     
     override init(reuseIdentifier: String?) {
@@ -35,21 +33,21 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         setupAvatarImage()
         setupAddSubs()
         setupContstraints()
-        setupAvatarImage() 
+        setupAvatarImage()
         statusTextField.delegate = self
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("error")
     }
     
-    //MARK: - Private Properties
+    //MARK: - Private Methods
     
     private func setupNameLabel() {
         fullNameLabel.text = "Teo West"
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
         fullNameLabel.textColor = .black
-
+        
         addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
             fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -253,3 +251,4 @@ extension ProfileHeaderView: UITextFieldDelegate {
         return true
     }
 }
+

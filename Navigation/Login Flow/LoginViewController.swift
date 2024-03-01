@@ -5,10 +5,10 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, Coordinating {
     
     // MARK: - Properties
-    
+    var coordinator: Coordinator?
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
     var vkLogo: UIImageView = {

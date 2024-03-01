@@ -20,7 +20,7 @@ final class FeedViewModel {
     
     var stateChanger: ((State) -> Void)?
     let model: FeedModel
-    private var state: State = .loading {
+     var state: State = .loading {
         didSet {
             self.stateChanger?(state)
         }

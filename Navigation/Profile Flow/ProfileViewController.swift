@@ -5,8 +5,11 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, Coordinating {
+    
     //MARK: - Properties
+    
+    var coordinator: Coordinator?
     
     static let headerIdent = "header"
     static let photoIdent = "photo"
