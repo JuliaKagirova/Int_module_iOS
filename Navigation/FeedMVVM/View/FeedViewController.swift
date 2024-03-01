@@ -3,10 +3,13 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController, Coordinating {
     
     //MARK: - Private Properties
-     var viewModel: FeedViewModelProtocol
+    
+    var coordinator: Coordinator?
+    var viewModel: FeedViewModelProtocol
+    
     private lazy var newTextField: UITextField = {
         let passField = UITextField().mask()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
