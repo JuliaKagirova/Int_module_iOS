@@ -18,8 +18,8 @@ class Checker {
     }
     
     func check(login: String, password: String) -> Bool {
-            login == self.login && password == self.password
-        }
+        login == self.login && password == self.password
+    }
 }
 
 protocol LoginViewControllerDelegate {

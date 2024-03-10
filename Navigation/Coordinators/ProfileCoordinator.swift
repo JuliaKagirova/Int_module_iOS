@@ -11,10 +11,13 @@ final class ProfileCoordinator: Coordinator {
     
     var navigationController: UINavigationController?
     var childCoordinator = [Coordinator]()
-    
-    func start() {
-//        let profileVC = ProfileViewController()
-//        profileVC.coordinator = self
-//        navigationController?.pushViewController(profileVC, animated: true)
-    }
+
+        init(navigationController: UINavigationController) {
+            self.navigationController = navigationController
+        }
+        
+        func start() {
+            let profileViewController = ProfileViewController()
+            navigationController?.setViewControllers([profileViewController], animated: true)
+        }
 }

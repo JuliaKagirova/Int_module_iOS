@@ -6,10 +6,10 @@
 import UIKit
 import iOSIntPackage
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, Coordinating {
     
     // MARK: - Proerties
-    
+    var coordinator: Coordinator?
     let photoIdent = "photoCell"
     let facade = ImagePublisherFacade()
     lazy var layout: UICollectionViewFlowLayout = {

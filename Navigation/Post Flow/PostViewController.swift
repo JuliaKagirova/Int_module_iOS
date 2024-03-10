@@ -6,11 +6,13 @@
 import UIKit
 import StorageService
  
- final class PostViewController: UIViewController {
+ final class PostViewController: UIViewController, Coordinating {
      
     //MARK: - Properties
      
-      var post: Post?
+     var post: Post?
+     var coordinator: Coordinator?
+
      
      //MARK: - Life Cycle
      

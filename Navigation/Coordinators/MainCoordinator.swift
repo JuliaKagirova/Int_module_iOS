@@ -14,9 +14,7 @@ final class MainCoordinator: Coordinator {
     var coordinator: [Coordinator]?  = nil
     
     func start() {
-        var loginVC: UIViewController & Coordinating = LoginViewController()
-        loginVC.coordinator = self
-        
+
         var profileVC: UIViewController & Coordinating = ProfileViewController()
         profileVC.coordinator = self
         
@@ -25,7 +23,7 @@ final class MainCoordinator: Coordinator {
         var feedVC: UIViewController & Coordinating = FeedViewController(viewModel: viewModel)
         feedVC.coordinator = self
         
-        navigationController?.setViewControllers([loginVC, profileVC, feedVC],
+        navigationController?.setViewControllers([feedVC, profileVC],
                                                  animated: false)
     }
 }

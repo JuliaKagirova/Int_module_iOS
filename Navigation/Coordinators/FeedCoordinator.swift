@@ -12,12 +12,20 @@ final class FeedCoordinator: Coordinator {
     var navigationController: UINavigationController?
     var childCoordinator = [Coordinator]()
     
+    init(navigationController: UINavigationController) {
+           self.navigationController = navigationController
+       }
+    
     func start() {
-//        let model = FeedModel()
-//        let viewModel = FeedViewModel(model: model)
-//        let feedVC = FeedViewController(viewModel: viewModel)
-//        feedVC.coordinator = self
-//        navigationController?.pushViewController(feedVC, animated: true)
+        var postVC: UIViewController & Coordinating = PostViewController()
+        postVC.coordinator = self
+        
+        var infoVC: UIViewController & Coordinating = InfoViewController()
+        infoVC.coordinator = self
+        
+        navigationController?.setViewControllers([postVC, infoVC], animated: true)
     }
 }
+
+
 

@@ -119,8 +119,10 @@ final class LoginViewController: UIViewController, Coordinating {
         guard let login = self.loginField.text, let password = self.passwordField.text else {
             // Сообщение о том что логин или пароль пустые
             return }
-        guard let checkResult = self.loginDelegate?.check(login: login, password: password), checkResult  else {
-            tapAlertButton() 
+        guard let checkResult = self.loginDelegate?.check(login: login, password: password), 
+                checkResult
+        else {
+            tapAlertButton()
             // UIAlertController с ошибкой, что лог и пасс неверные
             return }
         

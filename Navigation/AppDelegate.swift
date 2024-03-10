@@ -17,36 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginInspector = MyLoginFactory().makeLoginInspector()
         loginVC.loginDelegate = loginInspector
         
-        
-//        let profileNC = UINavigationController(rootViewController: loginVC)
-//        profileNC.tabBarItem = UITabBarItem(title: "Profile",
-//                                            image: UIImage(systemName: "person.crop.circle"),
-//                                            selectedImage: UIImage(systemName: "person.crop.circle.fill")) 
         let model = FeedModel()
         let viewModel = FeedViewModel(model: model)
         let fVC = FeedViewController(viewModel: viewModel)
 
-        
-        
-//        let feedNC = UINavigationController(rootViewController: fVC)
-//        feedNC.tabBarItem = UITabBarItem(title: "Feed",
-//                                         image: UIImage(systemName: "text.bubble"),
-//                                         selectedImage: UIImage(systemName: "text.bubble.fill"))
+        let feedNC = UINavigationController(rootViewController: fVC)
+        feedNC.tabBarItem = UITabBarItem(title: "Feed",
+                                         image: UIImage(systemName: "text.bubble"),
+                                         selectedImage: UIImage(systemName: "text.bubble.fill"))
 
-//        let tabBarController = UITabBarController()
-//        tabBarController.tabBar.backgroundColor = .white
-//        tabBarController.viewControllers = [ feedNC] //profileNC,
-//        
-        let navigationVC = UINavigationController()
-        let coordinator = MainCoordinator()
-        coordinator.navigationController = navigationVC
+        let profileNC = UINavigationController(rootViewController: loginVC)
+        profileNC.tabBarItem = UITabBarItem(title: "Profile",
+                                            image: UIImage(systemName: "person.crop.circle"),
+                                            selectedImage: UIImage(systemName: "person.crop.circle.fill"))
+      
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.backgroundColor = .placeholderText
+        tabBarController.viewControllers = [ profileNC, feedNC ]
         
         // activate main window
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navigationVC  //tabBarController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         self.window = window
-        
+        let coordinator = MainCoordinator()
         coordinator.start()
         return true
     } 

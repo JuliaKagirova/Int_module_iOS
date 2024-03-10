@@ -5,7 +5,11 @@
 
 import UIKit
 
-final class InfoViewController: UIViewController {
+final class InfoViewController: UIViewController, Coordinating {
+    
+    // MARK: - Properties
+    
+    var coordinator: Coordinator?
     
     //MARK: - Life Cycle
     
