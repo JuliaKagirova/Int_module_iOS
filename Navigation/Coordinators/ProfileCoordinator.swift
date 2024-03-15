@@ -16,8 +16,12 @@ final class ProfileCoordinator: Coordinator {
             self.navigationController = navigationController
         }
         
-        func start() {
-            let profileViewController = ProfileViewController()
-            navigationController?.setViewControllers([profileViewController], animated: true)
-        }
+    func start() {
+        let profileViewController = ProfileViewController()
+        navigationController?.setViewControllers([profileViewController], animated: true)
+    }
+    func showPhotosVC() {
+        let photosVC = PhotosViewController()
+        navigationController?.setViewControllers([photosVC], animated: true)
+    }
 }

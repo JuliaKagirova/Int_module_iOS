@@ -23,7 +23,10 @@ final class MainCoordinator: Coordinator {
         var feedVC: UIViewController & Coordinating = FeedViewController(viewModel: viewModel)
         feedVC.coordinator = self
         
-        navigationController?.setViewControllers([feedVC, profileVC],
+        var photosVC: UIViewController & Coordinating = PhotosViewController()
+        photosVC.coordinator = self
+        
+        navigationController?.setViewControllers([photosVC, feedVC, profileVC],
                                                  animated: false)
     }
 }
