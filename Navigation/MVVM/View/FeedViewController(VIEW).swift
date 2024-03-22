@@ -3,12 +3,14 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController, Coordinating {
     
-    //MARK: - Properties
+    //MARK: - Private Properties
     
-    private var viewModel: FeedViewModelProtocol
-    var newTextField: UITextField = {
+    var coordinator: Coordinator?
+    var viewModel: FeedViewModelProtocol
+    
+    private lazy var newTextField: UITextField = {
         let passField = UITextField().mask()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         passField.leftView = paddingView
@@ -26,13 +28,13 @@ final class FeedViewController: UIViewController {
         passField.backgroundColor = .systemFill
         return passField
     }()
-    lazy var checkGuessButton: CustomButton = {
+    private lazy var checkGuessButton: CustomButton = {
         let button = CustomButton(title: "Password", titleColor: .white, buttonAction: didTapCheckButton)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.25
         return button
     }()
-    let colorButton: UILabel = {
+    private lazy var colorButton: UILabel = {
         let colorButton = UILabel()
         colorButton.backgroundColor = .white
         colorButton.layer.cornerRadius = LayoutConstants.cornerRadius
@@ -56,7 +58,7 @@ final class FeedViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -64,10 +66,9 @@ final class FeedViewController: UIViewController {
         setups()
         bindingModel()
     }
-
-     
-    // MARK: - Private Methods
-
+    
+    //MARK: - Private Methods
+    
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -96,7 +97,7 @@ final class FeedViewController: UIViewController {
         postVC.post = post
         navigationController?.pushViewController(postVC, animated: true)
     }
-  
+    
     private func setups() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -113,7 +114,6 @@ final class FeedViewController: UIViewController {
             stackView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, constant: -32)
         ])
     }
-
     
     private func bindingModel() {
         viewModel.stateChanger = { [weak self] state in

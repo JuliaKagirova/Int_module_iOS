@@ -1,4 +1,5 @@
 {
+  "originHash" : "efd6eb8b36ed364de3f69e2f14cf3376affb2bb27f37b139be45f990d96e0ea3",
   "pins" : [
     {
       "identity" : "iosintpackage",
@@ -8,7 +9,16 @@
         "branch" : "imagepublisher",
         "revision" : "e1cc0e1b76d7cb8f770d903d85ae9ed91ae026bd"
       }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

@@ -7,11 +7,11 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
     
-    // MARK: - UI
+    // MARK: Visual objects
     
     var labelPhotos: UILabel = {
         let label = UILabel().mask()
-        label.text = "Photos" 
+        label.text = "Photos"
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = .black
         return label
@@ -20,9 +20,9 @@ class PhotosTableViewCell: UITableViewCell {
         let arrow = UIImageView().mask()
         arrow.image = UIImage(systemName: "arrow.right")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         return arrow
-    }() 
+    }()
     var stackViewImage: UIStackView = {
-        let stack = UIStackView().mask() 
+        let stack = UIStackView().mask()
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillEqually
@@ -37,11 +37,13 @@ class PhotosTableViewCell: UITableViewCell {
         preview.clipsToBounds = true
         return preview
     }
-    // MARK: - Init
+    // MARK: - Init section
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         contentView.addSubviews(labelPhotos, arrowImage, stackViewImage)
+        
         setupPreviews()
         setupConstraints()
     }
@@ -50,8 +52,6 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("Error")
     }
     
-    // MARK: - Private Methods
-
     // get 3 preview images
     private func setupPreviews() {
         for ind in 0...2 {
@@ -83,4 +83,3 @@ class PhotosTableViewCell: UITableViewCell {
         ])
     }
 }
-

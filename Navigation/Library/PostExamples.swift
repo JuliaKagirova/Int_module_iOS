@@ -5,7 +5,7 @@
 import StorageService
 
  let postExamples: [Post] = [
-     Post( 
+     Post(
         author: "Kat Vadam",
          description: "Zelda Metal Band Master Sword is Kickstarting a New Album, and We’ve Got the Inside Scoop",
          image: "post1",
@@ -20,11 +20,10 @@ import StorageService
          description: "What Future Iterations of the Master Cycle Zero Do You Want to See?",
          image: "post3",
          likes: 3,
-         views: 34), 
+         views: 34),
     Post(author: "Mike Midwood",
          description: "New Lo-Fi Fan Album Ocarina of Vibes Releases Today",
          image: "post4",
          likes: 14,
          views: 136
         )] 
-

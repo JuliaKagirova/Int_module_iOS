@@ -27,7 +27,7 @@ final class FeedCoordinator: Coordinator {
     }
 }
 
-//var 2
+///var 2
 
 //final class FeedCoordinator: Coordinator {
 //    var controller: UIViewController

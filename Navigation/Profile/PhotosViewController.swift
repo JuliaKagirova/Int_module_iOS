@@ -6,10 +6,10 @@
 import UIKit
 import iOSIntPackage
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, Coordinating {
     
     // MARK: - Proerties
-    
+    var coordinator: Coordinator?
     let photoIdent = "photoCell"
     let facade = ImagePublisherFacade()
     lazy var layout: UICollectionViewFlowLayout = {
@@ -30,11 +30,12 @@ class PhotosViewController: UIViewController {
     // MARK: - Private Properties
     
     private var collectionImages : [UIImage] = Photos.shared.examples
-
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Photo Gallery"
         self.view.addSubview(photosCollectionView)
         self.photosCollectionView.dataSource = self
@@ -49,7 +50,7 @@ class PhotosViewController: UIViewController {
         facade.addImagesWithTimer(time: 1, repeat: 40, userImages: collectionImages)
         self.receive(images: collectionImages)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
@@ -69,7 +70,7 @@ class PhotosViewController: UIViewController {
     }
     
     // MARK: - Event Handlers
-
+    
     @objc private func notificationAction(_ notification: NSNotification) {
         guard notification.object is String else { return }
         print("NotificationCenter in VC ")
@@ -92,13 +93,11 @@ extension PhotosViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionImages.count
-
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoIdent, for: indexPath) as? PhotosCollectionViewCell else { return UICollectionViewCell()}
-        cell.configCellCollection(photo: collectionImages[indexPath.item])      
-
+        cell.configCellCollection(photo: collectionImages[indexPath.item])
         return cell
     }
 }
@@ -109,8 +108,6 @@ extension PhotosViewController: ImageLibrarySubscriber {
         photosCollectionView.reloadData()
     }
 }
-
 extension NSNotification.Name {
     static let reloadPhoto = NSNotification.Name("reloadPhoto")
-
     }

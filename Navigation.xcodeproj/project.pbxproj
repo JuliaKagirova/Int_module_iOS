@@ -12,13 +12,17 @@
 		1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694612B06D8C600EC5EC9 /* CustomButton.swift */; };
 		1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694632B10BFD800EC5EC9 /* FeedModel.swift */; };
 		1F1694662B1E2E5F00EC5EC9 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694652B1E2E5F00EC5EC9 /* FeedViewModel.swift */; };
-		1F4F81282A24C72B003C10AD /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4F81272A24C72B003C10AD /* iOSIntPackage */; };
+		1F3253D12BADA4C0004C64C7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253D02BADA4C0004C64C7 /* Coordinator.swift */; };
+		1F3253D32BADA80D004C64C7 /* FeedCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253D22BADA80D004C64C7 /* FeedCoord.swift */; };
+		1F3253D52BADA834004C64C7 /* MainCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253D42BADA834004C64C7 /* MainCoord.swift */; };
+		1F3253D72BADA84D004C64C7 /* ProfileCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253D62BADA84D004C64C7 /* ProfileCoord.swift */; };
+		1F3253DA2BAE243F004C64C7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1F3253D92BAE243F004C64C7 /* SnapKit */; };
+		1F3253DC2BAE243F004C64C7 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1F3253DB2BAE243F004C64C7 /* SnapKit-Dynamic */; };
+		1F4F81282A24C72B003C10AD /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6B2A8619B40010CAC3 /* Checker.swift */; };
 		1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */; };
 		1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */; };
-
 		1F9554B52AED5D130083C6E0 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F9554B42AED5D130083C6E0 /* iOSIntPackage */; };
-
 		1FEC842329EE98AB000A8F5E /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842229EE98AB000A8F5E /* StorageService.docc */; };
 		1FEC842929EE98AB000A8F5E /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEC841F29EE98AA000A8F5E /* StorageService.framework */; };
 		1FEC843029EE98AB000A8F5E /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842F29EE98AB000A8F5E /* StorageServiceTests.swift */; };
@@ -45,7 +49,6 @@
 		36C5F05E2850B4A6005EFC6C /* PhotoExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5F05D2850B4A6005EFC6C /* PhotoExamples.swift */; };
 		36C5F0612850B723005EFC6C /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5F0602850B723005EFC6C /* PhotosViewController.swift */; };
 		36C5F0632850B7B6005EFC6C /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5F0622850B7B6005EFC6C /* PhotosCollectionViewCell.swift */; };
-		49AD67392C9B63A2CDA3947B /* libPods-Navigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3689DDBFD0ED2CBC740A4E1 /* libPods-Navigation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,10 @@
 		1F1694612B06D8C600EC5EC9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1F1694632B10BFD800EC5EC9 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		1F1694652B1E2E5F00EC5EC9 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		1F3253D02BADA4C0004C64C7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1F3253D22BADA80D004C64C7 /* FeedCoord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoord.swift; sourceTree = "<group>"; };
+		1F3253D42BADA834004C64C7 /* MainCoord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoord.swift; sourceTree = "<group>"; };
+		1F3253D62BADA84D004C64C7 /* ProfileCoord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoord.swift; sourceTree = "<group>"; };
 		1F721F6B2A8619B40010CAC3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
@@ -146,7 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4F81282A24C72B003C10AD /* iOSIntPackage in Frameworks */,
+				1F3253DC2BAE243F004C64C7 /* SnapKit-Dynamic in Frameworks */,
+				1F4F81282A24C72B003C10AD /* (null) in Frameworks */,
+				1F3253DA2BAE243F004C64C7 /* SnapKit in Frameworks */,
 				1FEC843429EE98AB000A8F5E /* StorageService.framework in Frameworks */,
 				1F9554B52AED5D130083C6E0 /* iOSIntPackage in Frameworks */,
 			);
@@ -187,6 +196,17 @@
 				1F1694652B1E2E5F00EC5EC9 /* FeedViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F3253CF2BADA480004C64C7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1F3253D02BADA4C0004C64C7 /* Coordinator.swift */,
+				1F3253D22BADA80D004C64C7 /* FeedCoord.swift */,
+				1F3253D42BADA834004C64C7 /* MainCoord.swift */,
+				1F3253D62BADA84D004C64C7 /* ProfileCoord.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		1FEC842029EE98AB000A8F5E /* StorageService */ = {
@@ -232,6 +252,7 @@
 		3601A2A628490DDF000D261A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1F3253CF2BADA480004C64C7 /* Coordinator */,
 				1F1694672B1E52CA00EC5EC9 /* MVVM */,
 				36528E3A284F703400965BA4 /* Library */,
 				3601A2C5284A771D000D261A /* Profile */,
@@ -363,6 +384,8 @@
 			name = Navigation;
 			packageProductDependencies = (
 				1F9554B42AED5D130083C6E0 /* iOSIntPackage */,
+				1F3253D92BAE243F004C64C7 /* SnapKit */,
+				1F3253DB2BAE243F004C64C7 /* SnapKit-Dynamic */,
 			);
 			productName = Navigation;
 			productReference = 3601A2A428490DDF000D261A /* Navigation.app */;
@@ -401,6 +424,7 @@
 			mainGroup = 3601A29B28490DDF000D261A;
 			packageReferences = (
 				1F9554B32AED5D130083C6E0 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				1F3253D82BAE243F004C64C7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 3601A2A528490DDF000D261A /* Products */;
 			projectDirPath = "";
@@ -488,7 +512,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36528E3F284FDF9100965BA4 /* PostTableViewCell.swift in Sources */,
+				1F3253D72BADA84D004C64C7 /* ProfileCoord.swift in Sources */,
 				1F1694602B06D33F00EC5EC9 /* ProtocolObserver.swift in Sources */,
+				1F3253D32BADA80D004C64C7 /* FeedCoord.swift in Sources */,
 				3601A2BC28494D5D000D261A /* FeedViewController(VIEW).swift in Sources */,
 				1FEC844829EFCB8B000A8F5E /* PostExamples.swift in Sources */,
 				1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */,
@@ -506,9 +532,11 @@
 				36C5F0612850B723005EFC6C /* PhotosViewController.swift in Sources */,
 				1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */,
 				36528E39284F700900965BA4 /* ExtensionUIImage.swift in Sources */,
+				1F3253D52BADA834004C64C7 /* MainCoord.swift in Sources */,
 				36C5F05C2850B1B1005EFC6C /* PhotosTableViewCell.swift in Sources */,
 				1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */,
 				3601A2C42849E232000D261A /* InfoViewController.swift in Sources */,
+				1F3253D12BADA4C0004C64C7 /* Coordinator.swift in Sources */,
 				36C5F0632850B7B6005EFC6C /* PhotosCollectionViewCell.swift in Sources */,
 				36528E3C284F725E00965BA4 /* LayoutConstants.swift in Sources */,
 			);
@@ -880,6 +908,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1F3253D82BAE243F004C64C7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		1F9554B32AED5D130083C6E0 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
@@ -891,6 +927,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1F3253D92BAE243F004C64C7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F3253D82BAE243F004C64C7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		1F3253DB2BAE243F004C64C7 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F3253D82BAE243F004C64C7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
 		1F9554B42AED5D130083C6E0 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1F9554B32AED5D130083C6E0 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;

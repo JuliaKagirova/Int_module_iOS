@@ -7,7 +7,7 @@
 
 import UIKit
 
- class FeedModel {
+ final class FeedModel {
     
     //MARK: - Properties
     

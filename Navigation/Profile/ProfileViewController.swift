@@ -5,9 +5,12 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
-  
-    // MARK: - Properties
+final class ProfileViewController: UIViewController, Coordinating {
+    
+    //MARK: - Properties
+    
+    var coordinator: Coordinator?
+    var profileCoordinator: ProfileCoordinator?
     
     static let headerIdent = "header"
     static let photoIdent = "photo"
@@ -25,6 +28,7 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileCoordinator = ProfileCoordinator(navigationController: self.navigationController!)
         
 #if DEBUG
         view.backgroundColor = .systemPink
@@ -40,7 +44,7 @@ final class ProfileViewController: UIViewController {
         Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
     }
     
-    //MARK: - Private Methods
+    //MARK: - Private Properties
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -50,10 +54,8 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-  
     //MARK: - Event Handler
     
-
     @objc func reloadTableView() {
         Self.postTableView.reloadData()
         Self.postTableView.refreshControl?.endRefreshing()
@@ -109,7 +111,9 @@ extension ProfileViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             tableView.deselectRow(at: indexPath, animated: false)
-            navigationController?.pushViewController(PhotosViewController(), animated: true)
+//            navigationController?.pushViewController(PhotosViewController(), animated: true)
+            profileCoordinator?.showPhotosVC()
+            
         case 1:
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
             if let post = cell as? PostTableViewCell {

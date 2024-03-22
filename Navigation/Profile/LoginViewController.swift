@@ -5,10 +5,10 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, Coordinating {
     
     // MARK: - Properties
-    
+    var coordinator: Coordinator?
     var loginScrollView = UIScrollView().mask()
     var contentView = UIView().mask()
     var vkLogo: UIImageView = {
@@ -119,8 +119,10 @@ final class LoginViewController: UIViewController {
         guard let login = self.loginField.text, let password = self.passwordField.text else {
             // Сообщение о том что логин или пароль пустые
             return }
-        guard let checkResult = self.loginDelegate?.check(login: login, password: password), checkResult  else {
-            tapAlertButton() 
+        guard let checkResult = self.loginDelegate?.check(login: login, password: password),
+                checkResult
+        else {
+            tapAlertButton()
             // UIAlertController с ошибкой, что лог и пасс неверные
             return }
         
