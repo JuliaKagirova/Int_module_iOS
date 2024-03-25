@@ -1,13 +1,20 @@
 # IOSUI Navigation Project
 
-## Выполните 7 любых заданий из 10выполнено 0
-Домашнее задание «URLSession. URLSessionDataTask»
-Домашнее задание «JSON. Codable. Модели данных»
-Домашнее задание «REST API. HTTP(s)»
-Домашнее задание «Bundle. Sandbox. FileManager»
-Домашнее задание «UserDefaults, Keychain, On-demand Resources»
-Домашнее задание «Базы данных. Realm»
-Домашнее задание «Core Data: начало работы»
-Домашнее задание «CoreData. Оптимизации. Работа в многопоточной среде»
-Домашнее задание «FetchResultController»
-Домашнее задание «Безопасность»
+##Задание
+
+Создайте сетевой сервис, типа struct NetworkManager или struct NetworkService. В NetworkService пока будет только один пустой метод static func request() {}. Позже он будет запускать URLSessionDataTask для определенного URL.
+Объявите enum AppConfiguration, в нём будут три case с ассоциированными значениями типа URL или String на ваше усмотрение.
+При загрузке приложения в AppDelegate/SceneDelegate (там, где загружено окно типа UIWindow и рутовый контроллер) рандомно инициализируйте свойство appConfiguration: AppConfiguration в методе didFinish.../willConnectTo.
+Для инициализации кейсов appConfiguration используйте любые три URL из открытого API: https://swapi.dev/api/.
+Примеры String для URL:
+
+«https://swapi.dev/api/people/8»;
+«https://swapi.dev/api/starships/3»;
+«https://swapi.dev/api/planets/5».
+Передайте конфигурацию в метод сетевого сервиса. Поскольку метод request сервиса NetworkManager/NetworkService не принимал параметров, его надо изменить, добавив как параметр конфигурацию static func request(for configuration: AppConfiguration) {}.
+Реализуйте сессию в методе request с помощью переданной конфигурации. Для этого сначала нужно достать ассоциированное значение (типа String или сразу URL) из параметра конфигурации configuration с помощью оператора switch, преобразовать строку в URL при необходимости, а далее отправить запрос с помощью URLSessionDataTask к API.
+С помощью команды print выведите результат:
+a. data — в доступном для понимания виде, то есть String в стандартной кодировке;
+b. свойство .allHeaderFields и .statusCode у response;
+c. попробуйте выключить интернет или Wi-Fi у ноутбука и запустить приложение — распечатайте error.localizedDescription или error.debugDescription
+Укажите в комментарии код ошибки, который пришёл при выключенном интернете.
