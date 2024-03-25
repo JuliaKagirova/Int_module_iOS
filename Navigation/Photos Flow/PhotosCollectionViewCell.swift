@@ -7,12 +7,13 @@ import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
 
+
     //MARK: - Properties
     
     var photo = UIImageView().mask()
 
     // MARK: - Life Cycle
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraints()

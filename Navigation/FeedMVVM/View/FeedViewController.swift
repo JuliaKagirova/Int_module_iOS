@@ -58,7 +58,7 @@ final class FeedViewController: UIViewController, Coordinating {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -66,9 +66,10 @@ final class FeedViewController: UIViewController, Coordinating {
         setups()
         bindingModel()
     }
-    
-    //MARK: - Private Methods
-    
+
+     
+    // MARK: - Private Methods
+
     private func createSubView() {
         let stackView = UIStackView().mask()
         stackView.axis = .vertical
@@ -114,6 +115,7 @@ final class FeedViewController: UIViewController, Coordinating {
             stackView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, constant: -32)
         ])
     }
+
     
     private func bindingModel() {
         viewModel.stateChanger = { [weak self] state in
