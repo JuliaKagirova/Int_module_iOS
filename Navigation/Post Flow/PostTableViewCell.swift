@@ -105,20 +105,6 @@ import iOSIntPackage
 
     // MARK: - Run loop
     
-    func configPostArray(post: Post) {
-        postAuthor.text = post.author
-        postDescription.text = post.description 
-        postImage.image = UIImage(named: post.image)
-        postLikes.text = "Likes: \(post.likes)"
-        viewCounter = post.views
-        postViews.text = "Views: \(viewCounter)"
-        imageFilter(image: UIImage(imageLiteralResourceName: post.image))
-    }
-    
-    func incrementPostViewsCounter() {
-        viewCounter += 1
-        postViews.text = "Views: \(viewCounter)"
-    }
      func imageFilter(image: UIImage) {
          ImageProcessor().processImage(sourceImage: image, filter: ColorFilter.noir) { image in
              postImage.image = image
