@@ -1,7 +1,4 @@
-/* 
-  Localizable.strings
-  Navigation
+"AppDelegate.feed" = "Feed";
 
-  Created by Юлия Кагирова on 25.03.2024.
-  
-*/
+"AppDelegate.profile" = "Profile";
+
