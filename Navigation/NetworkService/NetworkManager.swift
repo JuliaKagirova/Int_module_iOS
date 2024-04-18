@@ -40,7 +40,7 @@ struct NetworkManager {
             guard let data else { return }
             print(String(bytes: data, encoding: .utf8))
             print(response.statusCode, response.allHeaderFields)
-
+ 
         }
         task.resume()
      }

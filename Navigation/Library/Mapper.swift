@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol IMapper {
+    func serialize(_data: Data, completion: @escaping([String: Any]) -> Void)
+}

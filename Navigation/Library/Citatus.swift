@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Citatus: Codable {
+    let title: String
+}
