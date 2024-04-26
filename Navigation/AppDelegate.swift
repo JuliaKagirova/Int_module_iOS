@@ -5,12 +5,21 @@
 
 import UIKit
 
+enum Constants {
+    static let feedTabImage = "text.bubble"
+    static let feedTabImageFill = "text.bubble.fill"
+    static let profileTabImage = "person.crop.circle"
+    static let profileTabImageFill = "person.crop.circle.fill"
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? 
+    var window: UIWindow?
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        NetworkManager.request(.films)
         
         // create tab bar with feed and profile items
         let loginVC = LoginViewController()
@@ -22,14 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fVC = FeedViewController(viewModel: viewModel)
 
         let feedNC = UINavigationController(rootViewController: fVC)
-        feedNC.tabBarItem = UITabBarItem(title: "Feed",
-                                         image: UIImage(systemName: "text.bubble"),
-                                         selectedImage: UIImage(systemName: "text.bubble.fill"))
+        feedNC.tabBarItem = UITabBarItem(title: "Feed", //"AppDelegate.feed".localized,
+                                         image: UIImage(systemName: Constants.feedTabImage),
+                                         selectedImage: UIImage(systemName: Constants.feedTabImageFill ))
 
         let profileNC = UINavigationController(rootViewController: loginVC)
-        profileNC.tabBarItem = UITabBarItem(title: "Profile",
-                                            image: UIImage(systemName: "person.crop.circle"),
-                                            selectedImage: UIImage(systemName: "person.crop.circle.fill"))
+        profileNC.tabBarItem = UITabBarItem(title: "Profile", //"AppDelegate.profile".localized,
+                                            image: UIImage(systemName: Constants.profileTabImage ),
+                                            selectedImage: UIImage(systemName: Constants.profileTabImageFill))
       
         let tabBarController = UITabBarController()
         tabBarController.tabBar.backgroundColor = .placeholderText
@@ -43,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let coordinator = MainCoordinator()
         coordinator.start()
         return true
-    } 
+        
+        
+    }
 }
 

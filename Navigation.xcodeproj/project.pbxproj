@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F160D252BD13895003A7E87 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D242BD13895003A7E87 /* Mapper.swift */; };
+		1F160D272BD14B89003A7E87 /* Citatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D262BD14B89003A7E87 /* Citatus.swift */; };
+		1F160D292BD674CF003A7E87 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D282BD674CF003A7E87 /* Time.swift */; };
+		1F160D2B2BD84ADD003A7E87 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D2A2BD84ADD003A7E87 /* NetworkClient.swift */; };
+		1F160D2D2BD84C0B003A7E87 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D2C2BD84C0B003A7E87 /* NetworkError.swift */; };
 		1F16945E2B06D1F800EC5EC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16945D2B06D1F800EC5EC9 /* User.swift */; };
 		1F1694602B06D33F00EC5EC9 /* ProtocolObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */; };
 		1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694612B06D8C600EC5EC9 /* CustomButton.swift */; };
 		1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694632B10BFD800EC5EC9 /* FeedModel.swift */; };
 		1F1694662B1E2E5F00EC5EC9 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1694652B1E2E5F00EC5EC9 /* FeedViewModel.swift */; };
+		1F3253DF2BB17F6A004C64C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253DE2BB17F6A004C64C7 /* NetworkManager.swift */; };
+		1F3253E22BB1B5C5004C64C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F3253E02BB1B5C5004C64C7 /* Localizable.strings */; };
 		1F4F81282A24C72B003C10AD /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4F81272A24C72B003C10AD /* iOSIntPackage */; };
 		1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6B2A8619B40010CAC3 /* Checker.swift */; };
 		1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */; };
@@ -88,11 +95,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F160D242BD13895003A7E87 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		1F160D262BD14B89003A7E87 /* Citatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citatus.swift; sourceTree = "<group>"; };
+		1F160D282BD674CF003A7E87 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		1F160D2A2BD84ADD003A7E87 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		1F160D2C2BD84C0B003A7E87 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1F16945D2B06D1F800EC5EC9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolObserver.swift; sourceTree = "<group>"; };
 		1F1694612B06D8C600EC5EC9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1F1694632B10BFD800EC5EC9 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		1F1694652B1E2E5F00EC5EC9 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		1F3253DE2BB17F6A004C64C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1F3253E12BB1B5C5004C64C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F3253E62BB1B837004C64C7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1F3253E72BB1B837004C64C7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F721F6B2A8619B40010CAC3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
@@ -192,6 +208,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1F3253DD2BB17F4E004C64C7 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				1F3253DE2BB17F6A004C64C7 /* NetworkManager.swift */,
+				1F160D2A2BD84ADD003A7E87 /* NetworkClient.swift */,
+				1F160D2C2BD84C0B003A7E87 /* NetworkError.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		1FAD31952B8FE4E9009F3BA5 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +306,7 @@
 		3601A2A628490DDF000D261A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1F3253DD2BB17F4E004C64C7 /* NetworkService */,
 				1FAD31A52B926CF2009F3BA5 /* Photos Flow */,
 				1FAD31A42B926CD5009F3BA5 /* Info Flow */,
 				1FAD31A32B926C98009F3BA5 /* Post Flow */,
@@ -289,6 +316,7 @@
 				36528E3A284F703400965BA4 /* Library */,
 				3601A2C5284A771D000D261A /* Profile Flow */,
 				3601A2A728490DDF000D261A /* AppDelegate.swift */,
+				1F3253E02BB1B5C5004C64C7 /* Localizable.strings */,
 				3601A2B028490DDF000D261A /* Assets.xcassets */,
 				3601A2B228490DDF000D261A /* LaunchScreen.storyboard */,
 				3601A2B528490DDF000D261A /* Info.plist */,
@@ -319,6 +347,9 @@
 				1F16945D2B06D1F800EC5EC9 /* User.swift */,
 				1F16945F2B06D33F00EC5EC9 /* ProtocolObserver.swift */,
 				1F1694612B06D8C600EC5EC9 /* CustomButton.swift */,
+				1F160D242BD13895003A7E87 /* Mapper.swift */,
+				1F160D262BD14B89003A7E87 /* Citatus.swift */,
+				1F160D282BD674CF003A7E87 /* Time.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -434,6 +465,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3601A29B28490DDF000D261A;
 			packageReferences = (
@@ -471,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3601A2B428490DDF000D261A /* LaunchScreen.storyboard in Resources */,
+				1F3253E22BB1B5C5004C64C7 /* Localizable.strings in Resources */,
 				3601A2B128490DDF000D261A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,13 +536,16 @@
 				1FAD31942B8FE0A3009F3BA5 /* Coordinator.swift in Sources */,
 				3601A2BC28494D5D000D261A /* FeedViewController.swift in Sources */,
 				1FEC844829EFCB8B000A8F5E /* PostExamples.swift in Sources */,
+				1F160D272BD14B89003A7E87 /* Citatus.swift in Sources */,
 				1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */,
 				3601A2BE28494E4F000D261A /* ProfileViewController.swift in Sources */,
 				3601A2A828490DDF000D261A /* AppDelegate.swift in Sources */,
+				1F160D252BD13895003A7E87 /* Mapper.swift in Sources */,
 				1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */,
 				3601A2C028495339000D261A /* PostViewController.swift in Sources */,
 				36528E37284F5E3800965BA4 /* LoginViewController.swift in Sources */,
 				1F16945E2B06D1F800EC5EC9 /* User.swift in Sources */,
+				1F3253DF2BB17F6A004C64C7 /* NetworkManager.swift in Sources */,
 				1FAD31A12B91DF39009F3BA5 /* MainCoordinator.swift in Sources */,
 				1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */,
 				36528E41284FE38C00965BA4 /* ExtensionUIView.swift in Sources */,
@@ -520,11 +556,14 @@
 				36C5F0612850B723005EFC6C /* PhotosViewController.swift in Sources */,
 				1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */,
 				36528E39284F700900965BA4 /* ExtensionUIImage.swift in Sources */,
+				1F160D2B2BD84ADD003A7E87 /* NetworkClient.swift in Sources */,
 				1FAD31A62B926D2B009F3BA5 /* Post.swift in Sources */,
 				36C5F05C2850B1B1005EFC6C /* PhotosTableViewCell.swift in Sources */,
 				1F1694622B06D8C600EC5EC9 /* CustomButton.swift in Sources */,
+				1F160D2D2BD84C0B003A7E87 /* NetworkError.swift in Sources */,
 				1FAD31972B8FE50A009F3BA5 /* FeedCoordinator.swift in Sources */,
 				3601A2C42849E232000D261A /* InfoViewController.swift in Sources */,
+				1F160D292BD674CF003A7E87 /* Time.swift in Sources */,
 				36C5F0632850B7B6005EFC6C /* PhotosCollectionViewCell.swift in Sources */,
 				36528E3C284F725E00965BA4 /* LayoutConstants.swift in Sources */,
 			);
@@ -551,10 +590,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F3253E02BB1B5C5004C64C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F3253E12BB1B5C5004C64C7 /* en */,
+				1F3253E72BB1B837004C64C7 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3601A2B228490DDF000D261A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3601A2B328490DDF000D261A /* Base */,
+				1F3253E62BB1B837004C64C7 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -676,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -736,6 +786,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -70,6 +70,7 @@ final class LoginViewController: UIViewController, Coordinating {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.isHidden = true
         setupViews()
+
     }
     
     // MARK: - Private Methods
