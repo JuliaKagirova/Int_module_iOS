@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum NetworkError: Error {
+    case custom(description: String)
+    case server
+    case unknown
+}
