@@ -143,11 +143,11 @@ final class InfoViewController: UIViewController, Coordinating {
                 do {
                     self.dataLabel.text = "\(data)"
                     
-                    let period = try? self.decoder.decode(Time.self, from: data)
-                    self.orbitalPeriodDataLabel.text = period?.orbitalPeriod 
-                    
-                    let time = period?.orbitalPeriod
-                    completion(time, nil)
+//                    let period = try self.decoder.decode(Time.self, from: data)
+//                    self.orbitalPeriodDataLabel.text = period.orbitalPeriod
+//                    
+//                    let time = period.orbitalPeriod
+//                    completion(time, nil)
                     
                     let answerCitatus = try JSONDecoder().decode([Citatus].self, from: data)
                     let randomIndex: Int = Array(0...answerCitatus.count-1).randomElement()!

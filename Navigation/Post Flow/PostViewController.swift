@@ -19,7 +19,7 @@ import StorageService
       override func viewDidLoad() {
         super.viewDidLoad() 
         title = post?.author ?? "-"
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .systemBackground
         
         // add a button in the navigtion bar
         let barButton = UIBarButtonItem(title: "Info", style: .done, target: self, action: #selector(tapInfoButton))
