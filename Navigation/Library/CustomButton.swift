@@ -23,6 +23,7 @@ final class CustomButton: UIButton {
         self.setTitle(title, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
         self.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
+//        self.backgroundColor = .systemBlue
         self.layer.cornerRadius = LayoutConstants.cornerRadius
         self.clipsToBounds = true
         self.alpha = 1

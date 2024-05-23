@@ -16,8 +16,8 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     private lazy var statusTextField = UITextField().mask()
     private lazy var returnAvatarButton = UIButton().mask()
     private lazy var avatarBackground = UIView()
-    private lazy var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
-    private lazy var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
+//    private lazy var userDebug = User(login: "testDebug", fullName: "Debug name", status: "I am pink", avatar: UIImage(named: "7")!)
+//    private lazy var userRelease = User(login: "testRelease", fullName: "Release name", status: "I am green", avatar: UIImage(named: "9")!)
     private lazy var setStatusButton = CustomButton(title: "Show status", titleColor: .white, buttonAction: statusButton)
     private lazy var statusText = "Ready to help"
     private lazy var avatarOriginPoint = CGPoint()
@@ -56,7 +56,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
             fullNameLabel.heightAnchor.constraint(equalToConstant: 28),
         ])
 #if DEBUG
-        fullNameLabel.text = "\(userDebug.fullName)"
+//        fullNameLabel.text = "\(userDebug.fullName)"
 #else
         fullNameLabel.text = "\(userRelease.fullName)"
 #endif
@@ -74,9 +74,9 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
             statusLabel.heightAnchor.constraint(equalTo: fullNameLabel.heightAnchor),
         ])
 #if DEBUG
-        statusLabel.text = "\(userDebug.status)"
+//        statusLabel.text = "\(userDebug.status)"
 #else
-        statusLabel.text = "\(userRelease.status)"
+//        statusLabel.text = "\(userRelease.status)"
 #endif
     }
     
@@ -181,7 +181,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
             returnAvatarButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
 #if DEBUG
-        avatarImageView.image = userDebug.avatar
+//        avatarImageView.image = userDebug.avatar
 #else
         avatarImageView.image = userRelease.avatar
 #endif
