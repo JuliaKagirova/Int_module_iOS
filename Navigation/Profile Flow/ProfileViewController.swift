@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class ProfileViewController: UIViewController, Coordinating {
     
@@ -11,7 +12,7 @@ final class ProfileViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
     var profileCoordinator: ProfileCoordinator?
-    
+
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
@@ -42,6 +43,9 @@ final class ProfileViewController: UIViewController, Coordinating {
         Self.postTableView.delegate = self
         Self.postTableView.refreshControl = UIRefreshControl()
         Self.postTableView.refreshControl?.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
+        let barButton = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logoutButton))
+        navigationItem.leftBarButtonItem = barButton
+        
     }
     
     //MARK: - Private Properties
@@ -54,8 +58,18 @@ final class ProfileViewController: UIViewController, Coordinating {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+  
     //MARK: - Event Handler
-    
+    @objc func logoutButton() {
+        Task {
+            do {
+                try AuthManager.shared.signOut()
+                navigationController?.setViewControllers([LoginViewController()], animated: true)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
     @objc func reloadTableView() {
         Self.postTableView.reloadData()
         Self.postTableView.refreshControl?.endRefreshing()

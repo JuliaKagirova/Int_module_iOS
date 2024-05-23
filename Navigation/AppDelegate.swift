@@ -2,8 +2,10 @@
 //  AppDelegate.swift
 //  Navigation
 //
-
 import UIKit
+import FirebaseCore
+import Firebase
+import FirebaseAuth
 
 enum Constants {
     static let feedTabImage = "text.bubble"
@@ -13,7 +15,7 @@ enum Constants {
 }
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(_ application: UIApplication,
@@ -51,9 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         let coordinator = MainCoordinator()
         coordinator.start()
+        FirebaseApp.configure()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user == nil {
+                
+            }
+        }
         return true
-        
-        
     }
+     func applicationWillTerminate(_ application: UIApplication) {
+         do{
+             try Auth.auth().signOut()
+         } catch {
+             print(error.localizedDescription)
+         }
+     }
 }
 

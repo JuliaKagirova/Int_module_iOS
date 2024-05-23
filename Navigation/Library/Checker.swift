@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class Checker {
     static let shared = Checker(login: "testDebug", password: "debug")
@@ -22,7 +23,10 @@ class Checker {
     }
 }
 
+// MARK: - Protocols
+
 protocol LoginViewControllerDelegate {
-    func check(login: String, password: String) -> Bool
-} 
+    func checkCredentials(mail: String, password: String) -> Bool
+    func signUp()
+}
 
