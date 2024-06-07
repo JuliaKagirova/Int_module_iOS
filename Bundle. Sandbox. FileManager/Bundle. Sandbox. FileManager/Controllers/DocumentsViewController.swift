@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DocumentsViewController.swift
 //  Bundle. Sandbox. FileManager
 //
 //  Created by Юлия Кагирова on 28.05.2024.
@@ -8,14 +8,11 @@
 import UIKit
 import PhotosUI
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
-    
-//    var showImController = ShowImageController()
+    var mainCoordinator: MainCoordinator?
     var model = Model(path: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-    
     private lazy var tableView = UITableView(frame: .zero, style: .plain)
     
     //MARK: - Life Cycle
@@ -25,10 +22,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.backgroundColor = .systemBackground
         createButtons()
         setupTableView()
-        title = model.title
     }
     
-    //MARK: - Private Methods
+    //MARK: -  Methods
     
     private func createButtons() {
         let createFolderButton = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(didTapCreateFolder))
@@ -36,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navigationItem.rightBarButtonItems = [createFolderButton, addPhotoButton]
     }
     private func setupTableView() {
+        title = "Документы"
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -80,9 +77,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: - Handlers
     
     @objc private func didTapCreateFolder() {
-            TextPicker.showAddFolder(in: self) {[ weak self] text in
-                self?.model.addFolder(title: text)
-                self?.tableView.reloadData()
+        TextPicker.showAddFolder(in: self) {[ weak self] text in
+            self?.model.addFolder(title: text)
+            self?.tableView.reloadData()
         }
     }
     
@@ -94,7 +91,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 }
 //MARK: - Extensions
 
-extension ViewController: UITableViewDelegate {
+extension DocumentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -108,7 +105,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension DocumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.items.count
     }
@@ -117,15 +114,16 @@ extension ViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         var config =  UIListContentConfiguration.cell()
         config.text = model.items[indexPath.row]
+        
         cell.contentConfiguration = config
         cell.accessoryType = model.isPathForItemIsFolder(index: indexPath.row) ? .disclosureIndicator : .none
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if model.isPathForItemIsFolder(index: indexPath.row) {
-            let vc = ViewController()
-            vc.model = Model(path: model.path + "/" + model.items[indexPath.row])
-            navigationController?.pushViewController(vc, animated: true)
+            let docVC = DocumentsViewController()
+            docVC.model = Model(path: model.path + "/" + model.items[indexPath.row])
+            navigationController?.pushViewController(docVC, animated: true)
         } else {
             do {
                 let string = try NSString(contentsOf: URL(filePath: model.path + "/" + model.items[indexPath.row]), encoding: NSUTF8StringEncoding)
@@ -137,22 +135,18 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: PHPickerViewControllerDelegate {
+extension DocumentsViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         for result in results {
             result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
                 if let image = object as? UIImage {
-                    //добавляем вьюконтроллер в котором есть вьюха в которой откроется картинка
                     DispatchQueue.main.async {
-//                        let showImageController = ShowImageController()
-//                        self.navigationController?.present(showImageController, animated: true);
                         guard let imageData = image.jpegData(compressionQuality: 1) else {
                             print(error?.localizedDescription ?? "Something went wrong...")
                             return
                         }
                         self.model.addImage(image: imageData)
-//                        image = showImageController.viewForImage
                         self.tableView.reloadData()
                         picker.dismiss(animated: true)
                     }

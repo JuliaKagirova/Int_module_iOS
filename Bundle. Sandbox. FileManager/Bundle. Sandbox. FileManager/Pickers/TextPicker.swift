@@ -21,7 +21,7 @@ final class TextPicker {
     }
     
     static func showAddFolder(in viewController: UIViewController, completion: @escaping ((_ text: String)-> Void)) {
-        let alert = UIAlertController(title: "Create new folder  ", message: nil,  preferredStyle: .alert)
+        let alert = UIAlertController(title: "Create new folder", message: nil,  preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Folder name"
         }
@@ -35,4 +35,20 @@ final class TextPicker {
         alert.addAction(create)
         viewController.present(alert, animated: true )
      }
+    
+    static func showAddSettings(in viewController: UIViewController, completion: @escaping ((_ text: String)-> Void)) {
+        let alert = UIAlertController(title: "Create new setting", message: nil,  preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Setting's name"
+        }
+        let create = UIAlertAction(title: "Create", style: .default) { _ in
+            if let text = alert.textFields?[0].text {
+                completion(text)
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+        alert.addAction(cancel)
+        alert.addAction(create)
+        viewController.present(alert, animated: true )
+    }
 }

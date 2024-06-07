@@ -9,29 +9,56 @@
 /* Begin PBXBuildFile section */
 		1F944ABB2C05FE4000ECA891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ABA2C05FE4000ECA891 /* AppDelegate.swift */; };
 		1F944ABD2C05FE4000ECA891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ABC2C05FE4000ECA891 /* SceneDelegate.swift */; };
-		1F944ABF2C05FE4000ECA891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ABE2C05FE4000ECA891 /* ViewController.swift */; };
+		1F944ABF2C05FE4000ECA891 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ABE2C05FE4000ECA891 /* DocumentsViewController.swift */; };
 		1F944AC42C05FE4100ECA891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F944AC32C05FE4100ECA891 /* Assets.xcassets */; };
 		1F944AC72C05FE4100ECA891 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1F944AC62C05FE4100ECA891 /* Base */; };
 		1F944ACF2C05FE9200ECA891 /* ImPickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ACE2C05FE9200ECA891 /* ImPickerAlert.swift */; };
 		1F944AD12C05FEB000ECA891 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AD02C05FEB000ECA891 /* ImagePicker.swift */; };
 		1F944AD32C05FF7900ECA891 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AD22C05FF7900ECA891 /* Model.swift */; };
-		1F944AD52C05FFAC00ECA891 /* ShowImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AD42C05FFAC00ECA891 /* ShowImageController.swift */; };
 		1F944AD72C05FFC200ECA891 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AD62C05FFC200ECA891 /* TextPicker.swift */; };
+		1F944AD92C08AEB500ECA891 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AD82C08AEB500ECA891 /* LoginViewController.swift */; };
+		1F944ADB2C08B08500ECA891 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ADA2C08B08500ECA891 /* Coordinator.swift */; };
+		1F944ADD2C08B1AA00ECA891 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ADC2C08B1AA00ECA891 /* MainCoordinator.swift */; };
+		1F944ADF2C08B1F300ECA891 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944ADE2C08B1F300ECA891 /* LoginCoordinator.swift */; };
+		1F944AE72C09058800ECA891 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AE62C09058800ECA891 /* KeychainServiceProtocol.swift */; };
+		1F944AED2C0909F500ECA891 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AEC2C0909F500ECA891 /* SettingsViewController.swift */; };
+		1F944AEF2C0DD98000ECA891 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AEE2C0DD98000ECA891 /* SettingsCoordinator.swift */; };
+		1F944AF52C0F1A3200ECA891 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AF42C0F1A3200ECA891 /* Alerts.swift */; };
+		1F944AF92C0F294700ECA891 /* DocumentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944AF82C0F294700ECA891 /* DocumentsCoordinator.swift */; };
+		1F944B022C0F454600ECA891 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944B012C0F454600ECA891 /* ViewModel.swift */; };
+		1F944B052C0F488200ECA891 /* UserDefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944B042C0F488200ECA891 /* UserDefaultsStore.swift */; };
+		1F944B092C0F8F7700ECA891 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944B082C0F8F7700ECA891 /* KeychainStore.swift */; };
+		1F944B0D2C0F924100ECA891 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1F944B0C2C0F924100ECA891 /* KeychainSwift */; };
+		1F944B0F2C0F931600ECA891 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944B0E2C0F931600ECA891 /* Settings.swift */; };
+		1F944B132C10E44300ECA891 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944B122C10E44300ECA891 /* TabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F944AB72C05FE4000ECA891 /* Bundle. Sandbox. FileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bundle. Sandbox. FileManager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F944ABA2C05FE4000ECA891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F944ABC2C05FE4000ECA891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1F944ABE2C05FE4000ECA891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F944ABE2C05FE4000ECA891 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		1F944AC32C05FE4100ECA891 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F944AC62C05FE4100ECA891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F944AC82C05FE4100ECA891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F944ACE2C05FE9200ECA891 /* ImPickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImPickerAlert.swift; sourceTree = "<group>"; };
 		1F944AD02C05FEB000ECA891 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1F944AD22C05FF7900ECA891 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		1F944AD42C05FFAC00ECA891 /* ShowImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageController.swift; sourceTree = "<group>"; };
 		1F944AD62C05FFC200ECA891 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
+		1F944AD82C08AEB500ECA891 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1F944ADA2C08B08500ECA891 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1F944ADC2C08B1AA00ECA891 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1F944ADE2C08B1F300ECA891 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		1F944AE62C09058800ECA891 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
+		1F944AEC2C0909F500ECA891 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1F944AEE2C0DD98000ECA891 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		1F944AF42C0F1A3200ECA891 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		1F944AF82C0F294700ECA891 /* DocumentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCoordinator.swift; sourceTree = "<group>"; };
+		1F944B012C0F454600ECA891 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1F944B042C0F488200ECA891 /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
+		1F944B082C0F8F7700ECA891 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		1F944B0E2C0F931600ECA891 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		1F944B122C10E44300ECA891 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F944B0D2C0F924100ECA891 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +78,7 @@
 			children = (
 				1F944AB92C05FE4000ECA891 /* Bundle. Sandbox. FileManager */,
 				1F944AB82C05FE4000ECA891 /* Products */,
+				1F944B0A2C0F90A000ECA891 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,18 +94,86 @@
 			isa = PBXGroup;
 			children = (
 				1F944ABA2C05FE4000ECA891 /* AppDelegate.swift */,
-				1F944ACE2C05FE9200ECA891 /* ImPickerAlert.swift */,
-				1F944AD02C05FEB000ECA891 /* ImagePicker.swift */,
-				1F944AD22C05FF7900ECA891 /* Model.swift */,
 				1F944ABC2C05FE4000ECA891 /* SceneDelegate.swift */,
-				1F944AD42C05FFAC00ECA891 /* ShowImageController.swift */,
-				1F944AD62C05FFC200ECA891 /* TextPicker.swift */,
-				1F944ABE2C05FE4000ECA891 /* ViewController.swift */,
+				1F944AE12C08B5ED00ECA891 /* Alerts */,
+				1F944B032C0F486F00ECA891 /* Stores */,
+				1F944AE02C08B5C900ECA891 /* Models */,
+				1F944AE22C08B5FD00ECA891 /* Pickers */,
+				1F944AE42C08B62700ECA891 /* Controllers */,
+				1F944AE32C08B61400ECA891 /* Coordinators */,
 				1F944AC32C05FE4100ECA891 /* Assets.xcassets */,
 				1F944AC52C05FE4100ECA891 /* LaunchScreen.storyboard */,
 				1F944AC82C05FE4100ECA891 /* Info.plist */,
 			);
 			path = "Bundle. Sandbox. FileManager";
+			sourceTree = "<group>";
+		};
+		1F944AE02C08B5C900ECA891 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F944AD22C05FF7900ECA891 /* Model.swift */,
+				1F944AE62C09058800ECA891 /* KeychainServiceProtocol.swift */,
+				1F944B012C0F454600ECA891 /* ViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F944AE12C08B5ED00ECA891 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				1F944ACE2C05FE9200ECA891 /* ImPickerAlert.swift */,
+				1F944AF42C0F1A3200ECA891 /* Alerts.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		1F944AE22C08B5FD00ECA891 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				1F944AD02C05FEB000ECA891 /* ImagePicker.swift */,
+				1F944AD62C05FFC200ECA891 /* TextPicker.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		1F944AE32C08B61400ECA891 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				1F944ADA2C08B08500ECA891 /* Coordinator.swift */,
+				1F944ADC2C08B1AA00ECA891 /* MainCoordinator.swift */,
+				1F944ADE2C08B1F300ECA891 /* LoginCoordinator.swift */,
+				1F944AEE2C0DD98000ECA891 /* SettingsCoordinator.swift */,
+				1F944AF82C0F294700ECA891 /* DocumentsCoordinator.swift */,
+				1F944B122C10E44300ECA891 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		1F944AE42C08B62700ECA891 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F944ABE2C05FE4000ECA891 /* DocumentsViewController.swift */,
+				1F944AD82C08AEB500ECA891 /* LoginViewController.swift */,
+				1F944AEC2C0909F500ECA891 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1F944B032C0F486F00ECA891 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				1F944B042C0F488200ECA891 /* UserDefaultsStore.swift */,
+				1F944B082C0F8F7700ECA891 /* KeychainStore.swift */,
+				1F944B0E2C0F931600ECA891 /* Settings.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		1F944B0A2C0F90A000ECA891 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +192,9 @@
 			dependencies = (
 			);
 			name = "Bundle. Sandbox. FileManager";
+			packageProductDependencies = (
+				1F944B0C2C0F924100ECA891 /* KeychainSwift */,
+			);
 			productName = "Bundle. Sandbox. FileManager";
 			productReference = 1F944AB72C05FE4000ECA891 /* Bundle. Sandbox. FileManager.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 1F944AAE2C05FE4000ECA891;
+			packageReferences = (
+				1F944B0B2C0F924100ECA891 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = 1F944AB82C05FE4000ECA891 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,13 +252,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F944ABF2C05FE4000ECA891 /* ViewController.swift in Sources */,
+				1F944AD92C08AEB500ECA891 /* LoginViewController.swift in Sources */,
+				1F944AF92C0F294700ECA891 /* DocumentsCoordinator.swift in Sources */,
+				1F944ABF2C05FE4000ECA891 /* DocumentsViewController.swift in Sources */,
+				1F944AF52C0F1A3200ECA891 /* Alerts.swift in Sources */,
+				1F944ADB2C08B08500ECA891 /* Coordinator.swift in Sources */,
 				1F944ABB2C05FE4000ECA891 /* AppDelegate.swift in Sources */,
-				1F944AD52C05FFAC00ECA891 /* ShowImageController.swift in Sources */,
+				1F944B132C10E44300ECA891 /* TabBarCoordinator.swift in Sources */,
+				1F944ADD2C08B1AA00ECA891 /* MainCoordinator.swift in Sources */,
+				1F944ADF2C08B1F300ECA891 /* LoginCoordinator.swift in Sources */,
 				1F944AD12C05FEB000ECA891 /* ImagePicker.swift in Sources */,
+				1F944AED2C0909F500ECA891 /* SettingsViewController.swift in Sources */,
+				1F944B022C0F454600ECA891 /* ViewModel.swift in Sources */,
 				1F944AD32C05FF7900ECA891 /* Model.swift in Sources */,
+				1F944B052C0F488200ECA891 /* UserDefaultsStore.swift in Sources */,
 				1F944ACF2C05FE9200ECA891 /* ImPickerAlert.swift in Sources */,
+				1F944AE72C09058800ECA891 /* KeychainServiceProtocol.swift in Sources */,
+				1F944AEF2C0DD98000ECA891 /* SettingsCoordinator.swift in Sources */,
+				1F944B092C0F8F7700ECA891 /* KeychainStore.swift in Sources */,
 				1F944AD72C05FFC200ECA891 /* TextPicker.swift in Sources */,
+				1F944B0F2C0F931600ECA891 /* Settings.swift in Sources */,
 				1F944ABD2C05FE4000ECA891 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -283,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -377,6 +493,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F944B0B2C0F924100ECA891 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F944B0C2C0F924100ECA891 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F944B0B2C0F924100ECA891 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F944AAF2C05FE4000ECA891 /* Project object */;
 }
