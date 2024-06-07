@@ -5,154 +5,98 @@
 //  Created by Юлия Кагирова on 30.05.2024.
 //
 
-//import UIKit
-//
-//final class MainCoordinator: Coordinator {
-//    
-//    var childCoordinator = [Coordinator]()
-//    var navigationController: UINavigationController?
-//    var tabBarController = UITabBarController()
-//    var coordinator: [Coordinator]?  = nil
-//    
-//    func start() {
-//
-//        var loginVC: UIViewController & Coordinating = LoginViewController()
-//        loginVC.coordinator = self
-//
-//        var docVC: UIViewController & Coordinating = DocumentsViewController()
-//        docVC.coordinator = self
-//        
-//        var settingsVC: UIViewController & Coordinating = SettingsViewController()
-//        settingsVC.coordinator = self
-//        
-//        navigationController?.setViewControllers([ settingsVC, docVC, loginVC],
-//                                                 animated: false)
-//    }
-//    private func tabBarCoordinator() -> Coordinator {
-//        let tabBarCoordinator = TabBarCoordinator(parentCoordinator: self, tabBarController: tabBarController)
-//        return tabBarCoordinator
-//    }
-//}
-
-
-
 import UIKit
+import KeychainSwift
 
-protocol AppCoordinatorProtocol: AnyObject {
-    func switchToNextBranch(from coordinator: CoordinatorProtocol)
+protocol MainCoordinatorProtocol: AnyObject {
+    func didTapLogin()
 }
 
-final class AppCoordinator {
+final class MainCoordinator {
     
-    // MARK: - Properties
     var childCoordinators: [CoordinatorProtocol] = []
     var tabBarController = UITabBarController()
-    
-    // MARK: - Private properties
-    private var rootViewController: UIViewController
-    
-    private func loginCoordinator() -> CoordinatorProtocol {
-        let loginCoordinator = LoginCoordinator(parentCoordinator: self)
-        return loginCoordinator
-    }
-    
-    private func tabBarCoordinator() -> CoordinatorProtocol {
-        let tabBarCoordinator = TabBarCoordinator(parentCoordinator: self, tabBarController: tabBarController)
-        return tabBarCoordinator
-    }
+    var navigationController: UINavigationController
     
     // MARK: - Life Cycle
-    init(rootViewController: UIViewController) {
-        self.rootViewController = rootViewController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     // MARK: - Private methods
     
-    private func showTabBarOnMainScreen(for user: User?) -> UIViewController {
-        let coordinator = tabBarCoordinator()
-        addChildCoordinator(coordinator)
-        setFlow(to: coordinator.start())
-        return rootViewController
+    func setLoginVC()  {
+        let loginCoordinator = LoginCoordinator(parentCoordinator: self, navigationController: navigationController)
+        let vc = loginCoordinator.start()
+        navigationController.setViewControllers([vc], animated: true)
     }
     
-    private func setFlow(to newViewController: UIViewController) {
-        rootViewController.addChild(newViewController)
-        newViewController.view.frame = rootViewController.view.frame
-        rootViewController.view.addSubview(newViewController.view)
-        newViewController.didMove(toParent: rootViewController)
-    }
-    
-    private func switchCoordinators(from previousCoordinator: CoordinatorProtocol, to nextCoordinator: CoordinatorProtocol) {
-        addChildCoordinator(nextCoordinator)
-        switchFlow(to: nextCoordinator.start())
-        removeChildCoordinator(previousCoordinator)
-    }
-    
-    private func switchFlow(to newViewController: UIViewController) {
-        guard let currentViewController = rootViewController.children.first else {
-            return
-        }
-        
-        currentViewController.willMove(toParent: nil)
-        currentViewController.navigationController?.isNavigationBarHidden = true
-        rootViewController.addChild(newViewController)
-        newViewController.view.frame = rootViewController.view.bounds
-        
-        rootViewController.transition(
-            from: rootViewController.children[0],
-            to: newViewController,
-            duration: 0.5,
-            options: [.transitionFlipFromRight]
-        ) { [weak self] in
-            guard let self else { return }
-            currentViewController.removeFromParent()
-            newViewController.didMove(toParent: rootViewController)
-        }
-    }
-    
-    private func isFirstLaunch() -> Bool {
-        return !UserDefaults.standard.bool(forKey: "isFirstLaunch")
-    }
-        
-    private func markAppAsLaunched() {
-        UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-    }
-    
-    private func addChildCoordinator(_ coordinator: CoordinatorProtocol) {
-        childCoordinators.append(coordinator)
-    }
-    
-    private func removeChildCoordinator(_ coordinator: CoordinatorProtocol) {
-        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
-            childCoordinators.remove(at: index)
-        }
+    func setTabBarVC() {
+        let tabBarCoordinator = TabBarCoordinator(parentCoordinator: self, tabBarController: tabBarController)
+         let vc =  tabBarCoordinator.start()
+        navigationController.setViewControllers([vc], animated: true)
     }
 }
 
 // MARK: - CoordinatorProtocol
-extension AppCoordinator: CoordinatorProtocol {
+
+extension MainCoordinator: CoordinatorProtocol {
+    
     func start() -> UIViewController {
-        if isFirstLaunch() {
-//            showOnboarding()
-//        } else {
-            showTabBarOnMainScreen(for: nil)
+
+        if passwordIsSavedInKeychain() {
+            setTabBarVC()
+            return navigationController
+        } else {
+            setLoginVC()
+            return navigationController
         }
     }
-}
-
-// MARK: - AppCoordinatorProtocol
-extension AppCoordinator: AppCoordinatorProtocol {
-    func switchToNextBranch(from coordinator: CoordinatorProtocol) {
+    
+    func passwordIsSavedInKeychain() -> Bool {
+        let keychain = KeychainSwift()
+        let passwordResult = keychain.get("pass2")
+        print("Password: \(String(describing: passwordResult))")
+        return passwordResult != nil
+    }
+  
+    func presentSavePasswordAlert() {
+        let alert = UIAlertController(title: "Сохранить пароль", message: "Чтобы продолжить, сохраните пароль в keychain.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { _ in
+            self.savePassword()
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         
-        switch coordinator {
-//        case let coordinator as OnboardingCoordinator:
-//            switchCoordinators(from: coordinator, to: authorizationCoordinator())
-        case let coordinator as AuthorizationCoordinator:
-            markAppAsLaunched()
-            switchCoordinators(from: coordinator, to: tabBarCoordinator())
-        default:
-            print("Error coordinators switching")
+        let scene = UIApplication.shared.connectedScenes.first
+        let window = scene?.inputView?.window?.windowScene?.keyWindow
+        let rootViewController = window?.rootViewController
+        
+        rootViewController?.present(alert, animated: true)
+    }
+    
+    func savePassword() {
+        let keychain = KeychainSwift()
+        keychain.set("password", forKey: "pass2")
+    }
+    
+    func loginButtonTapped() {
+        let docVC = DocumentsViewController()
+        docVC.mainCoordinator = self
+        UINavigationController().navigationController?.pushViewController(docVC, animated: true)
+    }
+    func switchFlow() {
+        if passwordIsSavedInKeychain() {
+            setTabBarVC()
         }
     }
 }
 
+extension MainCoordinator: MainCoordinatorProtocol {
+    func didTapLogin() {
+        savePassword()
+        switchFlow()
+    }
+    
+    
+}

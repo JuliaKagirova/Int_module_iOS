@@ -16,11 +16,9 @@ final class Model {
     var title: String {
         return NSString(string: path).lastPathComponent
     }
-   lazy var items: [String] = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
-//    var items: [String] {
-//        return (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
-//    }
-
+    
+    lazy var items: [String] = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
+    
     //MARK: - Life Cycle
     
     init(path: String) {
@@ -28,28 +26,28 @@ final class Model {
     }
     
     //MARK: - Methods
-
+    
     func addFolder(title: String) {
         try? FileManager.default.createDirectory(atPath: path + "/" + title, withIntermediateDirectories: true)
         items = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
     }
-
+    
     func addImage(image: Data) {
-            print(path)
-            let url = URL(string: path)?.appendingPathComponent("image\(items.endIndex + 1).jpg")
-            FileManager.default.createFile(atPath: (url?.path())!, contents: image)
-            items = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
-        }
+        print(path)
+        let url = URL(string: path)?.appendingPathComponent("image\(items.endIndex + 1).jpg")
+        FileManager.default.createFile(atPath: (url?.path())!, contents: image)
+        items = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
+    }
     
     func deleteItem(index: Int) {
         let pathForDelete = path + "/" + items[index]
         try? FileManager.default.removeItem(atPath: pathForDelete)
         items = (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
-
+        
     }
     func isPathForItemIsFolder(index: Int) -> Bool {
         var objcBool: ObjCBool = .init(false)
-         FileManager.default.fileExists(atPath: path + "/" + items[index], isDirectory: &objcBool)
+        FileManager.default.fileExists(atPath: path + "/" + items[index], isDirectory: &objcBool)
         return objcBool.boolValue
     }
 }

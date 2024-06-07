@@ -1,27 +1,44 @@
-//DocumentsCoordinator.swift
-//  Bundle. Sandbox. FileManager
-
-//Created by Юлия Кагирова on 30.05.2024.
-
-
+////  LoginCoordinator.swift
+////  Bundle. Sandbox. FileManager
+//
+////Created by Юлия Кагирова on 30.05.2024.
+//
+//
 import UIKit
 
-final class LoginCoordinator: Coordinator {
+protocol LoginCoordinatorProtocol: AnyObject {
+    func pushLoginButton()
+}
+
+final class LoginCoordinator {
     
-    var navigationController: UINavigationController?
-    var childCoordinator = [Coordinator]()
-    
-    init(navigationController: UINavigationController) {
+    // MARK: - Properties
+    weak var parentCoordinator: MainCoordinatorProtocol?
+    var navigationController: UINavigationController
+    init(parentCoordinator: MainCoordinatorProtocol?, navigationController: UINavigationController) {
+        self.parentCoordinator = parentCoordinator
         self.navigationController = navigationController
     }
     
-    func start() {
-        let loginVC: UIViewController & Coordinating = LoginViewController()
-        navigationController?.setViewControllers([loginVC], animated: true)
-    }
- 
-    func loginbuttonTapped() {
-        let docVC: UIViewController & Coordinating = DocumentsViewController()
-        navigationController?.setViewControllers([docVC], animated: true)
+    // MARK: - Private methods
+    private func createNavigationController() -> UIViewController {
+        let loginVC = LoginViewController()
+        loginVC.coordinator = self
+        return loginVC
     }
 }
+
+// MARK: - CoordinatorProtocol
+extension LoginCoordinator: CoordinatorProtocol {
+    func start() -> UIViewController {
+        createNavigationController()
+    }
+}
+
+// MARK: - LoginCoordinatorProtocol
+extension LoginCoordinator: LoginCoordinatorProtocol {
+    func pushLoginButton() {
+        parentCoordinator?.didTapLogin()
+    }
+}
+

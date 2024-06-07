@@ -7,20 +7,6 @@
 
 import UIKit
 
-//protocol Coordinator {
-//    
-//    var navigationController: UINavigationController? { get set }
-//    var childCoordinator: [Coordinator] { get set }
-//    
-//    func start()
-//}
-//
-//protocol Coordinating {
-//    var coordinator: Coordinator? { get set }
-//}
-
-
-
 protocol CoordinatorProtocol: AnyObject {
     func start() -> UIViewController
 }

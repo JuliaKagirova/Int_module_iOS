@@ -10,13 +10,12 @@ import UIKit
 protocol KeychainServiceProtocol {
     var name: String { get }
     func load() -> [KeychainService]
-    func save(password: [KeychainService])
+    func save(items: [KeychainService])
     func update()
-
 }
 
-struct KeychainService: Codable    {
-    let title: String
+struct KeychainService: Codable {
+    var title: String
     var isCompleted: Bool
     var date: Date
     
@@ -24,5 +23,14 @@ struct KeychainService: Codable    {
         self.title = title
         self.isCompleted = false
         self.date = Date()
+    }
+}
+extension KeychainServiceProtocol {
+    func encode(items: [KeychainService]) -> Data? {
+        try? JSONEncoder().encode(items)
+    }
+    
+    func decode(data: Data) -> [KeychainService] {
+        return (try? JSONDecoder().decode([KeychainService].self, from: data)) ?? []
     }
 }

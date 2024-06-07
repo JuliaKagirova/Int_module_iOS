@@ -8,15 +8,11 @@
 import UIKit
 import PhotosUI
 
-class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Coordinating {
-    var coordinator: (any Coordinator)?
-    
-    
+class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
-    
+    var mainCoordinator: MainCoordinator?
     var model = Model(path: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-    
     private lazy var tableView = UITableView(frame: .zero, style: .plain)
     
     //MARK: - Life Cycle
@@ -26,10 +22,9 @@ class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate
         view.backgroundColor = .systemBackground
         createButtons()
         setupTableView()
-        title = model.title
     }
     
-    //MARK: - Private Methods
+    //MARK: -  Methods
     
     private func createButtons() {
         let createFolderButton = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(didTapCreateFolder))
@@ -37,6 +32,7 @@ class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate
         navigationItem.rightBarButtonItems = [createFolderButton, addPhotoButton]
     }
     private func setupTableView() {
+        title = "Документы"
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -81,9 +77,9 @@ class DocumentsViewController: UIViewController, UIImagePickerControllerDelegate
     //MARK: - Handlers
     
     @objc private func didTapCreateFolder() {
-            TextPicker.showAddFolder(in: self) {[ weak self] text in
-                self?.model.addFolder(title: text)
-                self?.tableView.reloadData()
+        TextPicker.showAddFolder(in: self) {[ weak self] text in
+            self?.model.addFolder(title: text)
+            self?.tableView.reloadData()
         }
     }
     
@@ -118,6 +114,7 @@ extension DocumentsViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         var config =  UIListContentConfiguration.cell()
         config.text = model.items[indexPath.row]
+        
         cell.contentConfiguration = config
         cell.accessoryType = model.isPathForItemIsFolder(index: indexPath.row) ? .disclosureIndicator : .none
         return cell
