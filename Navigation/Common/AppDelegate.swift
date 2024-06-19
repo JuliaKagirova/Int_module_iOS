@@ -53,6 +53,7 @@ enum Constants {
         self.window = window
         let coordinator = MainCoordinator()
         coordinator.start()
+        
         FirebaseApp.configure()
         Auth.auth().addStateDidChangeListener { auth, user in
             if user == nil {
