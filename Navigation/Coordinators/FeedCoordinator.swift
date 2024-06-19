@@ -17,10 +17,16 @@ final class FeedCoordinator: Coordinator {
        }
     
     func start() {
-        var postVC: UIViewController & Coordinating = PostViewController()
+//        var postVC: UIViewController & Coordinating = PostViewController()
+//        postVC.coordinator = self
+        
+        var postVC = PostViewController()
         postVC.coordinator = self
         
-        var infoVC: UIViewController & Coordinating = InfoViewController()
+//        var infoVC: UIViewController & Coordinating = InfoViewController()
+//        infoVC.coordinator = self
+        
+        var infoVC = InfoViewController()
         infoVC.coordinator = self
         
         navigationController?.setViewControllers([postVC, infoVC], animated: true)

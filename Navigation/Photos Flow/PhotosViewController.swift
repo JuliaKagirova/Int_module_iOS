@@ -6,7 +6,7 @@
 import UIKit
 import iOSIntPackage
 
-class PhotosViewController: UIViewController, Coordinating {
+class PhotosViewController: UIViewController { // Coordinating
     
     // MARK: - Proerties
     var coordinator: Coordinator?
@@ -41,6 +41,7 @@ class PhotosViewController: UIViewController, Coordinating {
         self.photosCollectionView.delegate = self
         setupConstraints()
         facade.subscribe(self)
+        backButton()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,7 +68,14 @@ class PhotosViewController: UIViewController, Coordinating {
             photosCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
-    
+    private func backButton() {
+        let backButton: UIBarButtonItem = {
+            let button = UIBarButtonItem()
+            navigationController?.navigationBar.backItem?.backBarButtonItem = .some(button)
+            return button
+        }()
+        
+    }
     // MARK: - Event Handlers
 
     @objc private func notificationAction(_ notification: NSNotification) {

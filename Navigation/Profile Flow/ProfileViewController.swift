@@ -6,7 +6,7 @@
 import UIKit
 import FirebaseAuth
 
-final class ProfileViewController: UIViewController, Coordinating {
+final class ProfileViewController: UIViewController {
     
     //MARK: - Properties
     

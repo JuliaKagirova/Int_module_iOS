@@ -48,11 +48,11 @@ enum Constants {
         
         // activate main window
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = tabBarController
+        window.rootViewController = FoldersVC() //tabBarController
         window.makeKeyAndVisible()
         self.window = window
-        let coordinator = MainCoordinator()
-        coordinator.start()
+       // let coordinator = MainCoordinator()
+       // coordinator.start()
         
         FirebaseApp.configure()
         Auth.auth().addStateDidChangeListener { auth, user in

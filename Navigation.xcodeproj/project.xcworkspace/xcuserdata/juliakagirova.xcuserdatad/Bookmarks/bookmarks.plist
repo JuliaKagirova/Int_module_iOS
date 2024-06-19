@@ -39,7 +39,7 @@
 				<key>leading</key>
 				<string>    }
     private func checkID(email: String?, password: String?) {
-        // при нажатии на кнопку войти ( правильно введеные логин и пароль, открывается экран пользователя)</string>
+       </string>
 				<key>trailing</key>
 				<string>        guard let login = email, let password = password else {
             return

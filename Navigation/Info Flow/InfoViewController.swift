@@ -5,7 +5,7 @@
 
 import UIKit
 
-final class InfoViewController: UIViewController, Coordinating {
+final class InfoViewController: UIViewController { //, Coordinating
     
     // MARK: - Properties
     

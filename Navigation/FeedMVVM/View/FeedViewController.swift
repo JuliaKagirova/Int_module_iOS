@@ -3,7 +3,7 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController, Coordinating {
+final class FeedViewController: UIViewController { //, Coordinating
     
     //MARK: - Private Properties
     

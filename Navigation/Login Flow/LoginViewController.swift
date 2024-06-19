@@ -8,7 +8,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseDatabaseInternal
 
-final class LoginViewController: UIViewController, Coordinating {
+final class LoginViewController: UIViewController { //, Coordinating
     
     // MARK: - Properties
     var coordinator: Coordinator?
@@ -172,7 +172,7 @@ final class LoginViewController: UIViewController, Coordinating {
         checkID(email: loginField.text, password: passwordField.text)
     }
     private func checkID(email: String?, password: String?) {
-        // при нажатии на кнопку войти ( правильно введеные логин и пароль, открывается экран пользователя)
+       
         guard let login = email, let password = password else {
             return
         }

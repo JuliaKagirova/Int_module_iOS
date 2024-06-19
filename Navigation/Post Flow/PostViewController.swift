@@ -6,7 +6,7 @@
 import UIKit
 import StorageService
  
- final class PostViewController: UIViewController, Coordinating {
+ final class PostViewController: UIViewController { // Coordinating 
      
     //MARK: - Properties
      
