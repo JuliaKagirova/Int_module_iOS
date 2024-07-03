@@ -12,6 +12,8 @@ enum Constants {
     static let feedTabImageFill = "text.bubble.fill"
     static let profileTabImage = "person.crop.circle"
     static let profileTabImageFill = "person.crop.circle.fill"
+    static let likePostTabImage = "heart.circle"
+    static let likePostTabImageFill = "heart.circle.fill"
 }
 
 @main
@@ -31,6 +33,9 @@ enum Constants {
         let model = FeedModel()
         let viewModel = FeedViewModel(model: model)
         let fVC = FeedViewController(viewModel: viewModel)
+        
+        let likeVC = LikePostViewController()
+        
 
         let feedNC = UINavigationController(rootViewController: fVC)
         feedNC.tabBarItem = UITabBarItem(title: "Feed", //"AppDelegate.feed".localized,
@@ -41,23 +46,28 @@ enum Constants {
         profileNC.tabBarItem = UITabBarItem(title: "Profile", //"AppDelegate.profile".localized,
                                             image: UIImage(systemName: Constants.profileTabImage ),
                                             selectedImage: UIImage(systemName: Constants.profileTabImageFill))
+        
+        let likeNC = UINavigationController(rootViewController: likeVC)
+        likeNC.tabBarItem = UITabBarItem(title: "Like", //"AppDelegate.profile".localized,
+                                            image: UIImage(systemName: Constants.likePostTabImage ),
+                                            selectedImage: UIImage(systemName: Constants.likePostTabImageFill))
+        
       
         let tabBarController = UITabBarController()
         tabBarController.tabBar.backgroundColor = .placeholderText
-        tabBarController.viewControllers = [ profileNC, feedNC ]
+        tabBarController.viewControllers = [ profileNC, feedNC, likeNC ]
         
         // activate main window
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = FoldersVC() //tabBarController
+        window.rootViewController = tabBarController //FoldersVC() //tabBarController
         window.makeKeyAndVisible()
         self.window = window
-       // let coordinator = MainCoordinator()
-       // coordinator.start()
+        let coordinator = MainCoordinator()
+        coordinator.start()
         
         FirebaseApp.configure()
         Auth.auth().addStateDidChangeListener { auth, user in
             if user == nil {
-                
             }
         }
         return true

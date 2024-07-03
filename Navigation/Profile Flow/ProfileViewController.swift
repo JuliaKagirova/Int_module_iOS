@@ -74,6 +74,10 @@ final class ProfileViewController: UIViewController {
         Self.postTableView.reloadData()
         Self.postTableView.refreshControl?.endRefreshing()
     }
+    
+    @objc private func doubleClickOnPost() {
+        LikePostViewController().likePostButtonDidTapped()
+    }
 }
 
 // MARK: - Extensions
@@ -103,6 +107,13 @@ extension ProfileViewController: UITableViewDelegate {
             return cell
         case 1:
             let cell = Self.postTableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
+                                    
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleClickOnPost))
+            tapGesture.numberOfTapsRequired = 2
+//            tapGesture.numberOfTouchesRequired = 1
+            cell.isUserInteractionEnabled = true
+            cell.addGestureRecognizer(tapGesture)
+            
             cell.configPostArray(post: postExamples[indexPath.row])
             return cell
         default:

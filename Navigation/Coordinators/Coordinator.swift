@@ -15,7 +15,3 @@ protocol Coordinator {
     
     func start()
 }
-
-//protocol Coordinating {
-//    var coordinator: Coordinator? { get set }
-//}

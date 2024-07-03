@@ -29,6 +29,9 @@
 		1F509C822C22D2DE00CADBB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F509C812C22D2DE00CADBB5 /* GoogleService-Info.plist */; };
 		1F509C852C22FE2A00CADBB5 /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F509C842C22FE2A00CADBB5 /* ItemsManager.swift */; };
 		1F509C872C22FE3800CADBB5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F509C862C22FE3800CADBB5 /* ItemsViewController.swift */; };
+		1F509D4B2C356B9C00CADBB5 /* LikePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F509D4A2C356B9C00CADBB5 /* LikePostViewController.swift */; };
+		1F509D4D2C356F1900CADBB5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F509D4C2C356F1900CADBB5 /* CoreDataManager.swift */; };
+		1F509D522C35718A00CADBB5 /* Navigation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F509D502C35718A00CADBB5 /* Navigation.xcdatamodeld */; };
 		1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6B2A8619B40010CAC3 /* Checker.swift */; };
 		1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */; };
 		1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */; };
@@ -127,6 +130,9 @@
 		1F509C812C22D2DE00CADBB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F509C842C22FE2A00CADBB5 /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = "<group>"; };
 		1F509C862C22FE3800CADBB5 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		1F509D4A2C356B9C00CADBB5 /* LikePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostViewController.swift; sourceTree = "<group>"; };
+		1F509D4C2C356F1900CADBB5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1F509D512C35718A00CADBB5 /* LikePost.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LikePost.xcdatamodel; sourceTree = "<group>"; };
 		1F721F6B2A8619B40010CAC3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
@@ -272,6 +278,14 @@
 			path = ItemsFlow;
 			sourceTree = "<group>";
 		};
+		1F509D492C356B8100CADBB5 /* LikePostFlow */ = {
+			isa = PBXGroup;
+			children = (
+				1F509D4A2C356B9C00CADBB5 /* LikePostViewController.swift */,
+			);
+			path = LikePostFlow;
+			sourceTree = "<group>";
+		};
 		1FAD31952B8FE4E9009F3BA5 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +375,7 @@
 		3601A2A628490DDF000D261A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1F509D492C356B8100CADBB5 /* LikePostFlow */,
 				1F3253DD2BB17F4E004C64C7 /* NetworkService */,
 				1FAD31A52B926CF2009F3BA5 /* Photos Flow */,
 				1FAD31A42B926CD5009F3BA5 /* Info Flow */,
@@ -404,6 +419,8 @@
 				1F160D262BD14B89003A7E87 /* Citatus.swift */,
 				1F160D282BD674CF003A7E87 /* Time.swift */,
 				1F944A782BFCD3F000ECA891 /* AuthManager.swift */,
+				1F509D4C2C356F1900CADBB5 /* CoreDataManager.swift */,
+				1F509D502C35718A00CADBB5 /* Navigation.xcdatamodeld */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -600,6 +617,7 @@
 				1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */,
 				3601A2BE28494E4F000D261A /* ProfileViewController.swift in Sources */,
 				3601A2A828490DDF000D261A /* AppDelegate.swift in Sources */,
+				1F509D4D2C356F1900CADBB5 /* CoreDataManager.swift in Sources */,
 				1F160D252BD13895003A7E87 /* Mapper.swift in Sources */,
 				1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */,
 				3601A2C028495339000D261A /* PostViewController.swift in Sources */,
@@ -614,7 +632,9 @@
 				1F1694662B1E2E5F00EC5EC9 /* FeedViewModel.swift in Sources */,
 				1FAD31992B8FE520009F3BA5 /* ProfileCoordinator.swift in Sources */,
 				3601A2C7284A776A000D261A /* ProfileHeaderView.swift in Sources */,
+				1F509D4B2C356B9C00CADBB5 /* LikePostViewController.swift in Sources */,
 				36C5F0612850B723005EFC6C /* PhotosViewController.swift in Sources */,
+				1F509D522C35718A00CADBB5 /* Navigation.xcdatamodeld in Sources */,
 				1F509C872C22FE3800CADBB5 /* ItemsViewController.swift in Sources */,
 				1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */,
 				36528E39284F700900965BA4 /* ExtensionUIImage.swift in Sources */,
@@ -1082,6 +1102,19 @@
 			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1F509D502C35718A00CADBB5 /* Navigation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F509D512C35718A00CADBB5 /* LikePost.xcdatamodel */,
+			);
+			currentVersion = 1F509D512C35718A00CADBB5 /* LikePost.xcdatamodel */;
+			path = Navigation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3601A29C28490DDF000D261A /* Project object */;
 }

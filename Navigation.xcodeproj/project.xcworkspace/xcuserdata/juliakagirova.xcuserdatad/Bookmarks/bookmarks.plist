@@ -449,6 +449,51 @@ struct LoginInspector</string>
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>110</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>109</string>
+					<key>Timestamp</key>
+					<string>741706791.641361</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Navigation/Profile Flow/ProfileViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                                    
+</string>
+				<key>leading</key>
+				<string>        case 1:
+            let cell = Self.postTableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
+</string>
+				<key>trailing</key>
+				<string>            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleClickOnPost))
+            tapGesture.numberOfTapsRequired = 2
+//            tapGesture.numberOfTouchesRequired = 1
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
 	</array>
 </dict>
 </plist>

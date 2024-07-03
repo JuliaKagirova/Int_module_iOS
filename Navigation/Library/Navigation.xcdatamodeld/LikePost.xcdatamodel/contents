@@ -3,5 +3,6 @@
     <entity name="LikePost" representedClassName="LikePost" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="post" optional="YES" attributeType="String"/>
     </entity>
 </model>
