@@ -6,11 +6,12 @@
 import UIKit
 import StorageService
 import iOSIntPackage
+import CoreData
 
- class PostTableViewCell: UITableViewCell {
-
+class PostTableViewCell: UITableViewCell {
+    
     // MARK: - UI
-     
+    
     var postAuthor: UILabel = {
         let label = UILabel().mask()
         label.font = .systemFont(ofSize: 18, weight: .bold)
@@ -43,72 +44,82 @@ import iOSIntPackage
         label.textColor = .black
         return label
     }()
-
-     // MARK: - Private Properties
-
+    var heartImage: UIImageView = {
+        let image = UIImageView().mask()
+        image.image = UIImage(systemName: "heart")
+        image.tintColor = .red
+        return image
+    }()
+    
+    // MARK: - Private Properties
+    
     private var viewCounter = 0
-     
+    
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(postAuthor, postImage, postDescription, postLikes, postViews)
+        contentView.addSubviews(postAuthor, postImage, postDescription, postLikes, postViews, heartImage)
         setupConstraints()
         self.selectionStyle = .default
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("Error")
     }
-     
-     // MARK: -  Methods
-     
-     func configPostArray(post: Post) {
-         postAuthor.text = post.author
-         postDescription.text = post.description
-         postImage.image = UIImage(named: post.image)
-         postLikes.text = "Likes: \(post.likes)"
-         viewCounter = post.views
-         postViews.text = "Views: \(viewCounter)"
-     }
-     
-     func incrementPostViewsCounter() {
-         viewCounter += 1
-         postViews.text = "Views: \(viewCounter)"
-     }
-
-     // MARK: - Private Methods
-
+    
+    // MARK: -  Methods
+    
+    func configPostArray(post: Post) {
+        postAuthor.text = post.author
+        postDescription.text = post.description
+        postImage.image = UIImage(named: post.image)
+        postLikes.text = "Likes: \(post.likes)"
+        viewCounter = Int(post.views)
+        postViews.text = "Views: \(viewCounter)"
+    }
+    
+    func incrementPostViewsCounter() {
+        viewCounter += 1
+        postViews.text = "Views: \(viewCounter)"
+    }
+    
+    // MARK: - Private Methods
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             postAuthor.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.indent),
             postAuthor.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leadingMargin),
             postAuthor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
-
+            
             postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.8 ),
             postImage.topAnchor.constraint(equalTo: postAuthor.bottomAnchor, constant: LayoutConstants.indent),
-
+            
             postDescription.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: LayoutConstants.indent),
             postDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leadingMargin),
             postDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
-
+            
             postLikes.topAnchor.constraint(equalTo: postDescription.bottomAnchor, constant: LayoutConstants.indent),
             postLikes.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leadingMargin),
             postLikes.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.indent),
-
+            
             postViews.topAnchor.constraint(equalTo: postDescription.bottomAnchor, constant: LayoutConstants.indent),
             postViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
-            postViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.indent)
+            postViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.indent),
+            
+            heartImage.centerYAnchor.constraint(equalTo: postAuthor.centerYAnchor),
+            heartImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            heartImage.heightAnchor.constraint(equalToConstant: 30),
+            heartImage.widthAnchor.constraint(equalToConstant: 30)
         ])
     }
-
+    
     // MARK: - Run loop
     
-     func imageFilter(image: UIImage) {
-         ImageProcessor().processImage(sourceImage: image, filter: ColorFilter.noir) { image in
-             postImage.image = image
-         }
-     }
-
+    func imageFilter(image: UIImage) {
+        ImageProcessor().processImage(sourceImage: image, filter: ColorFilter.noir) { image in
+            postImage.image = image
+        }
+    }
 }

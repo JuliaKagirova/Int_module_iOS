@@ -457,13 +457,13 @@ struct LoginInspector</string>
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>110</string>
+					<string>162</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>109</string>
+					<string>161</string>
 					<key>Timestamp</key>
-					<string>741706791.641361</string>
+					<string>742127389.900017</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -479,7 +479,7 @@ struct LoginInspector</string>
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>                                    
+				<string>            
 </string>
 				<key>leading</key>
 				<string>        case 1:
@@ -488,7 +488,7 @@ struct LoginInspector</string>
 				<key>trailing</key>
 				<string>            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleClickOnPost))
             tapGesture.numberOfTapsRequired = 2
-//            tapGesture.numberOfTouchesRequired = 1
+            cell.isUserInteractionEnabled = true
 </string>
 			</dict>
 			<key>type</key>

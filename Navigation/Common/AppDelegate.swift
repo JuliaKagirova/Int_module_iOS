@@ -48,7 +48,7 @@ enum Constants {
                                             selectedImage: UIImage(systemName: Constants.profileTabImageFill))
         
         let likeNC = UINavigationController(rootViewController: likeVC)
-        likeNC.tabBarItem = UITabBarItem(title: "Like", //"AppDelegate.profile".localized,
+        likeNC.tabBarItem = UITabBarItem(title: "Favorites", //"AppDelegate.profile".localized,
                                             image: UIImage(systemName: Constants.likePostTabImage ),
                                             selectedImage: UIImage(systemName: Constants.likePostTabImageFill))
         

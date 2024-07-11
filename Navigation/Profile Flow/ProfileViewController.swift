@@ -5,6 +5,12 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
+
+enum State {
+    case buttonPressed
+    case notPressed
+}
 
 final class ProfileViewController: UIViewController {
     
@@ -12,7 +18,9 @@ final class ProfileViewController: UIViewController {
     
     var coordinator: Coordinator?
     var profileCoordinator: ProfileCoordinator?
-
+    var heart = PostTableViewCell().heartImage
+    var likePosts: [LikePost] = []
+    var state = State.notPressed
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
@@ -29,6 +37,7 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        likePosts = CoreDataManager.shared.fetchLikePost()
         profileCoordinator = ProfileCoordinator(navigationController: self.navigationController!)
         
 #if DEBUG
@@ -58,8 +67,9 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-  
-    //MARK: - Event Handler
+    
+    //MARK: - Event Handlers
+    
     @objc func logoutButton() {
         Task {
             do {
@@ -75,9 +85,51 @@ final class ProfileViewController: UIViewController {
         Self.postTableView.refreshControl?.endRefreshing()
     }
     
-    @objc private func doubleClickOnPost() {
-        LikePostViewController().likePostButtonDidTapped()
+    @objc private func doubleClickOnPost(_ sender: UIButton) {
+        
+        sender.isSelected.toggle()
+        like()
+        //        heart.image = UIImage(systemName: "heart.fill")
+        //        heart.tintColor = .red
+        
+        CoreDataManager.shared.addLikePost2()
+        likePosts = CoreDataManager.shared.fetchLikePost()
+//        findDuplicate()
+      
+        
+        
+//        isDuplicated()
+        //        CoreDataManager.shared.addLikePost(post: Post.init(author: "author56", description: "descr", image: "image", likes: 22, views: 33))
+        
+        // Картинку здесь в этом задании можно не сохранять в CoreData, а так же читать из бандла как и в профиле.
     }
+    
+    private func like() { //heart -> button -> action 'like"
+        if state == .notPressed {
+            heart.image = UIImage(systemName: "heart.fill")
+            heart.tintColor = .red
+            state = .buttonPressed
+        } else {
+            heart.image = UIImage(systemName: "heart")
+            heart.tintColor = .blue
+            state = .notPressed
+        }
+    }
+    
+   
+    
+  
+    
+//    private func isDuplicated() {
+//        for post in likePosts {
+//            if let duplicate = CoreDataManager.shared.findDuplicate(postId: post.id) {
+//              //delete duplicate from core data
+//                //fetch likePosts
+//            } else {
+//                print("Duplicate not found")
+//            }
+//        }
+//    }
 }
 
 // MARK: - Extensions
@@ -107,10 +159,9 @@ extension ProfileViewController: UITableViewDelegate {
             return cell
         case 1:
             let cell = Self.postTableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
-                                    
+            
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleClickOnPost))
             tapGesture.numberOfTapsRequired = 2
-//            tapGesture.numberOfTouchesRequired = 1
             cell.isUserInteractionEnabled = true
             cell.addGestureRecognizer(tapGesture)
             
@@ -136,13 +187,14 @@ extension ProfileViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             tableView.deselectRow(at: indexPath, animated: false)
-//            navigationController?.pushViewController(PhotosViewController(), animated: true)
+            //            navigationController?.pushViewController(PhotosViewController(), animated: true)
             profileCoordinator?.showPhotosVC()
             
         case 1:
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
             if let post = cell as? PostTableViewCell {
                 post.incrementPostViewsCounter()
+              
             }
         default:
             assertionFailure("no registered section")
