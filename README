@@ -1,13 +1,13 @@
 # IOSUI Navigation Project
 
-## Выполните 7 любых заданий из 10 выполнено 3
+## Выполните 7 любых заданий из 10 выполнено 6
 + Домашнее задание «URLSession. URLSessionDataTask»
 + Домашнее задание «JSON. Codable. Модели данных»
 + Домашнее задание «REST API. HTTP(s)»
-Домашнее задание «Bundle. Sandbox. FileManager»
-Домашнее задание «UserDefaults, Keychain, On-demand Resources»
-Домашнее задание «Базы данных. Realm»
-Домашнее задание «Core Data: начало работы»
++ Домашнее задание «Bundle. Sandbox. FileManager»
+- Домашнее задание «UserDefaults, Keychain, On-demand Resources»
++ Домашнее задание «Базы данных. Realm»
++ Домашнее задание «Core Data: начало работы»
 Домашнее задание «CoreData. Оптимизации. Работа в многопоточной среде»
 Домашнее задание «FetchResultController»
 Домашнее задание «Безопасность»
