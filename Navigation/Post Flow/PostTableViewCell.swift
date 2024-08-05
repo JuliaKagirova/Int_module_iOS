@@ -10,7 +10,9 @@ import CoreData
 
 class PostTableViewCell: UITableViewCell {
     
-    // MARK: - UI
+    static let id = "PostTableViewCell"
+    
+    // MARK: - Properties
     
     var postAuthor: UILabel = {
         let label = UILabel().mask()
@@ -44,22 +46,23 @@ class PostTableViewCell: UITableViewCell {
         label.textColor = .black
         return label
     }()
-    var heartImage: UIImageView = {
-        let image = UIImageView().mask()
-        image.image = UIImage(systemName: "heart")
-        image.tintColor = .red
-        return image
+    var heartButton: UIButton = {
+        let heart = UIButton()
+        heart.setImage(UIImage(systemName: "heart"), for: .normal)
+        heart.tintColor = .red
+        heart.translatesAutoresizingMaskIntoConstraints = false
+        return heart
     }()
-    
+        
     // MARK: - Private Properties
     
     private var viewCounter = 0
     
-    // MARK: - Init
+    // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(postAuthor, postImage, postDescription, postLikes, postViews, heartImage)
+        contentView.addSubviews(postAuthor, postImage, postDescription, postLikes, postViews, heartButton)
         setupConstraints()
         self.selectionStyle = .default
     }
@@ -108,10 +111,10 @@ class PostTableViewCell: UITableViewCell {
             postViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trailingMargin),
             postViews.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.indent),
             
-            heartImage.centerYAnchor.constraint(equalTo: postAuthor.centerYAnchor),
-            heartImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            heartImage.heightAnchor.constraint(equalToConstant: 30),
-            heartImage.widthAnchor.constraint(equalToConstant: 30)
+            heartButton.centerYAnchor.constraint(equalTo: postAuthor.centerYAnchor),
+            heartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            heartButton.heightAnchor.constraint(equalToConstant: 30),
+            heartButton.widthAnchor.constraint(equalToConstant: 30)
         ])
     }
     

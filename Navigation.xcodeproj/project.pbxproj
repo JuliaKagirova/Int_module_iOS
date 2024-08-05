@@ -44,6 +44,7 @@
 		1FAD31992B8FE520009F3BA5 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD31982B8FE520009F3BA5 /* ProfileCoordinator.swift */; };
 		1FAD31A12B91DF39009F3BA5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD31A02B91DF39009F3BA5 /* MainCoordinator.swift */; };
 		1FAD31A62B926D2B009F3BA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601A2C128495DDF000D261A /* Post.swift */; };
+		1FE10FE32C5435D500C9F875 /* LikePostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE10FE22C5435D500C9F875 /* LikePostCoordinator.swift */; };
 		1FEC842329EE98AB000A8F5E /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842229EE98AB000A8F5E /* StorageService.docc */; };
 		1FEC842929EE98AB000A8F5E /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEC841F29EE98AA000A8F5E /* StorageService.framework */; };
 		1FEC843029EE98AB000A8F5E /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC842F29EE98AB000A8F5E /* StorageServiceTests.swift */; };
@@ -142,6 +143,7 @@
 		1FAD31962B8FE50A009F3BA5 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		1FAD31982B8FE520009F3BA5 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		1FAD31A02B91DF39009F3BA5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1FE10FE22C5435D500C9F875 /* LikePostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostCoordinator.swift; sourceTree = "<group>"; };
 		1FEC841F29EE98AA000A8F5E /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEC842129EE98AB000A8F5E /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		1FEC842229EE98AB000A8F5E /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				1FAD31962B8FE50A009F3BA5 /* FeedCoordinator.swift */,
 				1FAD31982B8FE520009F3BA5 /* ProfileCoordinator.swift */,
 				1FAD31A02B91DF39009F3BA5 /* MainCoordinator.swift */,
+				1FE10FE22C5435D500C9F875 /* LikePostCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				1FAD31A12B91DF39009F3BA5 /* MainCoordinator.swift in Sources */,
 				1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */,
 				36528E41284FE38C00965BA4 /* ExtensionUIView.swift in Sources */,
+				1FE10FE32C5435D500C9F875 /* LikePostCoordinator.swift in Sources */,
 				36C5F05E2850B4A6005EFC6C /* PhotoExamples.swift in Sources */,
 				1F1694662B1E2E5F00EC5EC9 /* FeedViewModel.swift in Sources */,
 				1FAD31992B8FE520009F3BA5 /* ProfileCoordinator.swift in Sources */,

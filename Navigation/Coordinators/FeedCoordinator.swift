@@ -20,13 +20,13 @@ final class FeedCoordinator: Coordinator {
 //        var postVC: UIViewController & Coordinating = PostViewController()
 //        postVC.coordinator = self
         
-        var postVC = PostViewController()
+        let postVC = PostViewController()
         postVC.coordinator = self
         
 //        var infoVC: UIViewController & Coordinating = InfoViewController()
 //        infoVC.coordinator = self
         
-        var infoVC = InfoViewController()
+        let infoVC = InfoViewController()
         infoVC.coordinator = self
         
         navigationController?.setViewControllers([postVC, infoVC], animated: true)

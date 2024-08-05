@@ -7,20 +7,14 @@ import UIKit
 import FirebaseAuth
 import CoreData
 
-enum State {
-    case buttonPressed
-    case notPressed
-}
-
 final class ProfileViewController: UIViewController {
     
     //MARK: - Properties
     
+    var currentPost: Post?
     var coordinator: Coordinator?
     var profileCoordinator: ProfileCoordinator?
-    var heart = PostTableViewCell().heartImage
-    var likePosts: [LikePost] = []
-    var state = State.notPressed
+
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
@@ -37,7 +31,6 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        likePosts = CoreDataManager.shared.fetchLikePost()
         profileCoordinator = ProfileCoordinator(navigationController: self.navigationController!)
         
 #if DEBUG
@@ -57,7 +50,7 @@ final class ProfileViewController: UIViewController {
         
     }
     
-    //MARK: - Private Properties
+    //MARK: - Private Methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -84,52 +77,6 @@ final class ProfileViewController: UIViewController {
         Self.postTableView.reloadData()
         Self.postTableView.refreshControl?.endRefreshing()
     }
-    
-    @objc private func doubleClickOnPost(_ sender: UIButton) {
-        
-        sender.isSelected.toggle()
-        like()
-        //        heart.image = UIImage(systemName: "heart.fill")
-        //        heart.tintColor = .red
-        
-        CoreDataManager.shared.addLikePost2()
-        likePosts = CoreDataManager.shared.fetchLikePost()
-//        findDuplicate()
-      
-        
-        
-//        isDuplicated()
-        //        CoreDataManager.shared.addLikePost(post: Post.init(author: "author56", description: "descr", image: "image", likes: 22, views: 33))
-        
-        // Картинку здесь в этом задании можно не сохранять в CoreData, а так же читать из бандла как и в профиле.
-    }
-    
-    private func like() { //heart -> button -> action 'like"
-        if state == .notPressed {
-            heart.image = UIImage(systemName: "heart.fill")
-            heart.tintColor = .red
-            state = .buttonPressed
-        } else {
-            heart.image = UIImage(systemName: "heart")
-            heart.tintColor = .blue
-            state = .notPressed
-        }
-    }
-    
-   
-    
-  
-    
-//    private func isDuplicated() {
-//        for post in likePosts {
-//            if let duplicate = CoreDataManager.shared.findDuplicate(postId: post.id) {
-//              //delete duplicate from core data
-//                //fetch likePosts
-//            } else {
-//                print("Duplicate not found")
-//            }
-//        }
-//    }
 }
 
 // MARK: - Extensions
@@ -159,13 +106,13 @@ extension ProfileViewController: UITableViewDelegate {
             return cell
         case 1:
             let cell = Self.postTableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
+            let post = postExamples[indexPath.row]
+            currentPost = post
+            cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            cell.heartButton.tintColor = .red
+            cell.heartButton.addTarget(self, action: #selector(likedPost), for: .touchUpInside)
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleClickOnPost))
-            tapGesture.numberOfTapsRequired = 2
-            cell.isUserInteractionEnabled = true
-            cell.addGestureRecognizer(tapGesture)
-            
-            cell.configPostArray(post: postExamples[indexPath.row])
+            cell.configPostArray(post: post)
             return cell
         default:
             assertionFailure("no registered section")
@@ -194,10 +141,20 @@ extension ProfileViewController: UITableViewDelegate {
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
             if let post = cell as? PostTableViewCell {
                 post.incrementPostViewsCounter()
-              
+                tableView.reloadData()
             }
         default:
             assertionFailure("no registered section")
         }
+    }
+    
+    @objc func likedPost() {
+        guard let currentPost else {
+            return
+        }
+        CoreDataManager.shared.addLikePost(postOrigin: currentPost)
+        PostTableViewCell().heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        PostTableViewCell().heartButton.tintColor = .red
+        print("Like tapped")
     }
 }

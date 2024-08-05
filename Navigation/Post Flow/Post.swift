@@ -10,11 +10,11 @@ public struct Post {
     public let author: String
     public let description: String
     public let image: String
-    public let likes: Int16
-    public let views: Double
-    public let id: UUID
+    public let likes: Int32
+    public let views: Int32
+    public let id: String
      
-    public init(author: String, description: String, image: String, likes: Int16, views: Double, id: UUID) {
+    public init(author: String, description: String, image: String, likes: Int32, views: Int32, id: String) {
         self.author = author
         self.description = description
         self.image = image

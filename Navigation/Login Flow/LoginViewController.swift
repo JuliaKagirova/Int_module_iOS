@@ -8,7 +8,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseDatabaseInternal
 
-final class LoginViewController: UIViewController { //, Coordinating
+final class LoginViewController: UIViewController { 
     
     // MARK: - Properties
     var coordinator: Coordinator?
@@ -163,7 +163,7 @@ final class LoginViewController: UIViewController { //, Coordinating
     }
     private func buttonDisable() {
         if (((loginField.text?.isEmpty) != nil) && (passwordField.text?.isEmpty) != nil)  {
-            loginButton.alpha = 0.5
+            loginButton.alpha = 0.7
         } else {
             loginButton.alpha = 1
         }

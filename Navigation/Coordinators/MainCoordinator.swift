@@ -15,32 +15,22 @@ final class MainCoordinator: Coordinator {
     
     func start() {
 
-//        var profileVC: UIViewController & Coordinating = ProfileViewController()
-//        profileVC.coordinator = self
-        
-        var profileVC = ProfileViewController()
+        let profileVC = ProfileViewController()
         profileVC.coordinator = self
-        
-//        let model = FeedModel()
-//        let viewModel = FeedViewModel(model: model)
-//        var feedVC: UIViewController & Coordinating = FeedViewController(viewModel: viewModel)
-//        feedVC.coordinator = self
         
         let model = FeedModel()
         let viewModel = FeedViewModel(model: model)
-        var feedVC = FeedViewController(viewModel: viewModel)
+        let feedVC = FeedViewController(viewModel: viewModel)
         feedVC.coordinator = self
         
-        
-        
-//        var photosVC: UIViewController & Coordinating = PhotosViewController()
-//        photosVC.coordinator = self
-//        
-        
-        var photosVC = PhotosViewController()
+        let photosVC = PhotosViewController()
         photosVC.coordinator = self
         
-        navigationController?.setViewControllers([photosVC, feedVC, profileVC],
+        let favourites = LikePostViewController()
+//        favourites.coordinator = self
+        
+        
+        navigationController?.setViewControllers([favourites, photosVC, feedVC, profileVC],
                                                  animated: false)
     }
 }

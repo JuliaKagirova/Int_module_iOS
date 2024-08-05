@@ -6,6 +6,7 @@ import UIKit
 import FirebaseCore
 import Firebase
 import FirebaseAuth
+import CoreData
 
 enum Constants {
     static let feedTabImage = "text.bubble"
@@ -79,5 +80,18 @@ enum Constants {
              print(error.localizedDescription)
          }
      }
+     
+     lazy var persistentContainer: NSPersistentContainer = {
+         
+         let container = NSPersistentContainer(name: "Navigation")
+         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+             if let error = error as NSError? {
+                 
+                 fatalError("Unresolved error \(error), \(error.userInfo)")
+             }
+         })
+         return container
+     }()
+     
 }
 

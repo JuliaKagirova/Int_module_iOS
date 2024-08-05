@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 final class ProfileCoordinator: Coordinator {
     
     var navigationController: UINavigationController?
     var childCoordinator = [Coordinator]()
 
+    var currentPost: Post?
+    
         init(navigationController: UINavigationController) {
             self.navigationController = navigationController
         }
