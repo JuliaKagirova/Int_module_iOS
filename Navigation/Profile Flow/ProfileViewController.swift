@@ -10,11 +10,11 @@ import CoreData
 final class ProfileViewController: UIViewController {
     
     //MARK: - Properties
-    
+  
     var currentPost: Post?
     var coordinator: Coordinator?
     var profileCoordinator: ProfileCoordinator?
-
+    
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
@@ -60,6 +60,7 @@ final class ProfileViewController: UIViewController {
             Self.postTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
     
     //MARK: - Event Handlers
     

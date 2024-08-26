@@ -71,6 +71,9 @@ enum Constants {
             if user == nil {
             }
         }
+        
+        print(makeKey(key: key))
+        print(keyFromUint(array: criptoKey) ?? " ")
         return true
     }
      func applicationWillTerminate(_ application: UIApplication) {

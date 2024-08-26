@@ -35,6 +35,7 @@
 		1F721F6C2A8619B40010CAC3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6B2A8619B40010CAC3 /* Checker.swift */; };
 		1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */; };
 		1F721F9C2A99435F0010CAC3 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */; };
+		1F7334012C7CB04B00BC52ED /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7333FF2C7CACC500BC52ED /* Password.swift */; };
 		1F944A6E2BF388F200ECA891 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1F944A6D2BF388F200ECA891 /* FirebaseAuth */; };
 		1F944A702BF6124B00ECA891 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944A6F2BF6124B00ECA891 /* AuthScreen.swift */; };
 		1F944A722BF63DC600ECA891 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1F944A712BF63DC600ECA891 /* FirebaseDatabase */; };
@@ -137,6 +138,7 @@
 		1F721F6B2A8619B40010CAC3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1F721F6D2A8A1A0C0010CAC3 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		1F721F9B2A99435F0010CAC3 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		1F7333FF2C7CACC500BC52ED /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		1F944A6F2BF6124B00ECA891 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		1F944A782BFCD3F000ECA891 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1FAD31932B8FE0A3009F3BA5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		3601A29B28490DDF000D261A = {
 			isa = PBXGroup;
 			children = (
+				1F7333FF2C7CACC500BC52ED /* Password.swift */,
 				3601A2A628490DDF000D261A /* Navigation */,
 				1FEC842029EE98AB000A8F5E /* StorageService */,
 				1FEC842E29EE98AB000A8F5E /* StorageServiceTests */,
@@ -620,6 +623,7 @@
 				1F1694642B10BFD800EC5EC9 /* FeedModel.swift in Sources */,
 				3601A2BE28494E4F000D261A /* ProfileViewController.swift in Sources */,
 				3601A2A828490DDF000D261A /* AppDelegate.swift in Sources */,
+				1F7334012C7CB04B00BC52ED /* Password.swift in Sources */,
 				1F509D4D2C356F1900CADBB5 /* CoreDataManager.swift in Sources */,
 				1F160D252BD13895003A7E87 /* Mapper.swift in Sources */,
 				1F721F6E2A8A1A0C0010CAC3 /* LoginInspector.swift in Sources */,
@@ -954,6 +958,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -986,6 +991,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
